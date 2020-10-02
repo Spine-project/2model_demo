@@ -16,37 +16,56 @@ RENAMES = {
     'grid_node': 'node',
     'powerplant': 'unit',
     'net_capacity': 'capacity',
-    'operating_cost': 'op_cost'
+    'operating_cost': 'op_cost',
+    'powerplant__grid_node': 'unit__node',
+    'demand': 'elec_load',
 }
+    
+def translate_spine_data(input: dict, renames: dict) -> dict:
+    """Translate Spine data renaming classes and parameters
+    """
+    
+    def rename(old_label):
+        return renames.get(old_label, old_label)
+        
+    return {
+        'object_classes': [
+            (rename(obj_class[0]),) + obj_class[1:]
+            for obj_class in input_data['object_classes']
+        ],
+        'relationship_classes': [
+            (
+                rename(rel_class[0]), 
+                [rename(obj_class) for obj_class in rel_class[1]],
+                rel_class[2]
+            )
+            for rel_class in input_data['relationship_classes']
+        ],
+        'object_parameters': [
+            (rename(obj_par[0]), rename(obj_par[1])) + obj_par[2:]
+            for obj_par in input_data['object_parameters']
+        ],
+        'objects': [
+            (rename(obj[0]), ) + obj[1:]
+            for obj in input_data['objects']
+        ],
+        'relationships': [
+            (rename(rel[0]), rel[1]) for rel in input_data['relationships']
+        ],
+        'object_parameter_values': [
+            (
+                rename(par_value[0]), 
+                par_value[1], 
+                rename(par_value[2]), 
+                par_value[3]
+            )
+            for par_value in input_data['object_parameter_values']
+        ],
+        'alternatives': input_data['alternatives']
+    }
 
-translated_data = {
-    'object_classes': [
-        ('grid_node', None, 280376907920706),
-        ('powerplant', '', 281472107868789)
-    ],
-    'relationship_classes': [
-        ('powerplant__grid_node', ['powerplant', 'grid_node'], None)],
-   'object_parameters': [
-        ('grid_node', 'demand', None, None, None),
-        ('powerplant', 'net_capacity', None, None, None),
-        ('powerplant', 'operating_cost', None, None, None)],
-   'objects': [
-        ('grid_node', 'node 1', None),
-        ('powerplant', 'plant A', None),
-        ('powerplant', 'plant B', None)],
-    'relationships': [
-        ('powerplant__grid_node', ['plant A', 'node 1']),
-        ('powerplant__grid_node', ['plant B', 'node 1'])],
-    'object_parameter_values': [
-        ('grid_node', 'node 1', 'demand', 150.0, 'Base'),
-        ('powerplant', 'plant A', 'net_capacity', 100.0, 'Base'),
-        ('powerplant', 'plant A', 'operating_cost', 25.0, 'Base'),
-        ('powerplant', 'plant B', 'net_capacity', 200.0, 'Base'),
-        ('powerplant', 'plant B', 'operating_cost', 50.0, 'Base')],
-    'alternatives': [
-        ('Base', 'Base alternative')
-    ]
-}
+translated_data = translate_spine_data(input_data, RENAMES)
 
 # Store to output db
-output_db.import_data(output_data)
+output_db.import_data(translated_data)
+output_db.commit("Translate from Master data")
