@@ -1,0 +1,17 @@
+{
+    "name": "Master2JuliaModelConverter",
+    "tooltype": "python",
+    "includes": [
+        "master_to_julia_model_convert.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [
+        "@@url_inputs@@",
+        "@@url_outputs@@"
+    ],
+    "execute_in_work": true,
+    "includes_main_path": "."
+}

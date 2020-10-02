@@ -1,0 +1,99 @@
+{
+    "project": {
+        "version": 2,
+        "name": "EMP-E-2models-demo",
+        "description": "",
+        "specifications": {
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "MyJuliaModel/myjuliamodel.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "MyJuliaModel/master2juliamodelconverter.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "from": [
+                    "Master2JuliaModelConverter",
+                    "right"
+                ],
+                "to": [
+                    "JuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "Master2JuliaModelConverter",
+                    "left"
+                ]
+            }
+        ]
+    },
+    "items": {
+        "Master data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -189.622062088229,
+            "y": 30.823409050754492,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/master_data/Master data.sqlite"
+                }
+            }
+        },
+        "JuliaModelDB": {
+            "type": "Data Store",
+            "description": "",
+            "x": 50.29878732688266,
+            "y": -63.138339443072894,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/juliamodeldb/JuliaModelDB.sqlite"
+                }
+            }
+        },
+        "MyJuliaModel": {
+            "type": "Tool",
+            "description": "",
+            "x": 196.32238945965548,
+            "y": -21.720306639415035,
+            "specification": "MyJuliaModel",
+            "execute_in_work": true,
+            "cmd_line_args": []
+        },
+        "Master2JuliaModelConverter": {
+            "type": "Tool",
+            "description": "",
+            "x": -81.09724249168008,
+            "y": -28.145513570641903,
+            "specification": "Master2JuliaModelConverter",
+            "execute_in_work": false,
+            "cmd_line_args": []
+        }
+    }
+}

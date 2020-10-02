@@ -1,0 +1,14 @@
+{
+    "name": "MyJuliaModel",
+    "tooltype": "julia",
+    "includes": [
+        "my_julia_model.jl"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "execute_in_work": true,
+    "includes_main_path": "."
+}
