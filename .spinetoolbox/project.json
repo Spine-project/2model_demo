@@ -13,18 +13,18 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "MyJuliaModel/master2juliamodelconverter.json"
+                    "path": "scripts/master2juliamodelconverter.json"
                 }
             ]
         },
         "connections": [
             {
                 "from": [
-                    "Master2JuliaModelConverter",
+                    "JuliaModelDB",
                     "right"
                 ],
                 "to": [
-                    "JuliaModelDB",
+                    "MyJuliaModel",
                     "left"
                 ]
             },
@@ -37,6 +37,16 @@
                     "Master2JuliaModelConverter",
                     "left"
                 ]
+            },
+            {
+                "from": [
+                    "Master2JuliaModelConverter",
+                    "right"
+                ],
+                "to": [
+                    "JuliaModelDB",
+                    "left"
+                ]
             }
         ]
     },
@@ -44,8 +54,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -189.622062088229,
-            "y": 30.823409050754492,
+            "x": -204.87376806605585,
+            "y": 41.00716895855551,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -62,8 +72,8 @@
         "JuliaModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": 50.29878732688266,
-            "y": -63.138339443072894,
+            "x": 57.871814832156424,
+            "y": -43.82468614203164,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -80,17 +90,17 @@
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 196.32238945965548,
-            "y": -21.720306639415035,
+            "x": 166.36141079271934,
+            "y": -20.1592238252298,
             "specification": "MyJuliaModel",
-            "execute_in_work": true,
+            "execute_in_work": false,
             "cmd_line_args": []
         },
         "Master2JuliaModelConverter": {
             "type": "Tool",
             "description": "",
-            "x": -81.09724249168008,
-            "y": -28.145513570641903,
+            "x": -85.6974061773933,
+            "y": -1.7308320748582418,
             "specification": "Master2JuliaModelConverter",
             "execute_in_work": false,
             "cmd_line_args": []
