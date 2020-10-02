@@ -18,7 +18,7 @@ RENAMES = {
     'net_capacity': 'capacity',
     'operating_cost': 'op_cost',
     'powerplant__grid_node': 'unit__node',
-    'demand': 'elec_load',
+    'elec_demand': 'demand',
 }
     
 def translate_spine_data(input: dict, renames: dict) -> dict:
