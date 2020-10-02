@@ -1,10 +1,11 @@
 import sys
+import csv
 
 from spinedb import SpineDB
 
-
 input_db_url = sys.argv[1]
 output_db_url = sys.argv[2]
+translation_file = sys.argv[3]
 
 input_db = SpineDB(input_db_url)
 output_db = SpineDB(output_db_url, create=True)
@@ -12,14 +13,13 @@ output_db = SpineDB(output_db_url, create=True)
 # Export data from input db
 input_data = input_db.export_data()
 
-RENAMES = {
-    'grid_node': 'node',
-    'powerplant': 'unit',
-    'net_capacity': 'capacity',
-    'operating_cost': 'op_cost',
-    'powerplant__grid_node': 'unit__node',
-    'elec_demand': 'demand',
-}
+renames = dict()
+
+# Open and read renames file
+with open(translation_file) as csvfile:
+    for row in csv.reader(csvfile):
+        renames[row[0]] = row[1]
+        
     
 def translate_spine_data(input: dict, renames: dict) -> dict:
     """Translate Spine data renaming classes and parameters
@@ -64,7 +64,7 @@ def translate_spine_data(input: dict, renames: dict) -> dict:
         'alternatives': input_data['alternatives']
     }
 
-translated_data = translate_spine_data(input_data, RENAMES)
+translated_data = translate_spine_data(input_data, renames)
 
 # Store to output db
 output_db.import_data(translated_data)
