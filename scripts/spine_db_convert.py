@@ -18,7 +18,7 @@ renames = dict()
 # Open and read renames file
 with open(translation_file) as csvfile:
     for row in csv.reader(csvfile):
-        renames[row[0]] = row[1]
+        renames[row[0].strip()] = row[1].strip()
         
     
 def translate_spine_data(input: dict, renames: dict) -> dict:

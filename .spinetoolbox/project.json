@@ -13,29 +13,19 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "scripts/master2juliamodelconverter.json"
+                    "path": "MyGamsModel/SpineToolbox.json"
                 },
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "MyGamsModel/SpineToolbox.json"
+                    "path": "scripts/spinedbconverter.json"
                 }
             ]
         },
         "connections": [
             {
                 "from": [
-                    "Master2EasyModelConverter",
-                    "right"
-                ],
-                "to": [
-                    "EasyModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
+                    "Master2EasyRenames",
                     "right"
                 ],
                 "to": [
@@ -45,37 +35,7 @@
             },
             {
                 "from": [
-                    "GdxExporter",
-                    "right"
-                ],
-                "to": [
-                    "EasyModel",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "EasyModelDB",
-                    "right"
-                ],
-                "to": [
-                    "GdxExporter",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master2JuliaModelConverter",
-                    "right"
-                ],
-                "to": [
-                    "JuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
+                    "Master2JuliaRenames",
                     "right"
                 ],
                 "to": [
@@ -92,6 +52,66 @@
                     "MyJuliaModel",
                     "left"
                 ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "Master2JuliaModelConverter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master2JuliaModelConverter",
+                    "right"
+                ],
+                "to": [
+                    "JuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "EasyModelDB",
+                    "right"
+                ],
+                "to": [
+                    "GdxExporter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GdxExporter",
+                    "right"
+                ],
+                "to": [
+                    "EasyModel",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "Master2EasyModelConverter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master2EasyModelConverter",
+                    "right"
+                ],
+                "to": [
+                    "EasyModelDB",
+                    "left"
+                ]
             }
         ]
     },
@@ -99,8 +119,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -186.8675894293876,
-            "y": 52.165927550293574,
+            "x": -278.56171639987673,
+            "y": 6.272051743342146,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -117,8 +137,8 @@
         "JuliaModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": 86.9442918833536,
-            "y": -11.916618023051825,
+            "x": 12.830148238603527,
+            "y": -56.638494941620635,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -135,8 +155,8 @@
         "EasyModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": 88.53038731623141,
-            "y": 125.8791444652666,
+            "x": 31.410227553029102,
+            "y": 80.57126810250648,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -150,11 +170,37 @@
                 }
             }
         },
+        "Master2JuliaRenames": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -281.2797332118252,
+            "y": -97.27590773575625,
+            "references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "MyJuliaModel/master2julia.csv"
+                }
+            ]
+        },
+        "Master2EasyRenames": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -278.93573543505994,
+            "y": 114.8558910614953,
+            "references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "MyGamsModel/master2easy.csv"
+                }
+            ]
+        },
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 209.95840451298574,
-            "y": -13.84197078984814,
+            "x": 142.29025475434,
+            "y": -59.14984715260826,
             "specification": "MyJuliaModel",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -162,9 +208,9 @@
         "Master2JuliaModelConverter": {
             "type": "Tool",
             "description": "",
-            "x": -58.699860078920324,
-            "y": -7.863164755821629,
-            "specification": "Master2JuliaModelConverter",
+            "x": -129.88400650271387,
+            "y": -55.51503889534695,
+            "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
                 "master2julia.csv"
@@ -173,8 +219,8 @@
         "EasyModel": {
             "type": "Tool",
             "description": "",
-            "x": 334.0638833885921,
-            "y": 125.87914446526656,
+            "x": 279.28772140215494,
+            "y": 80.57126810250644,
             "specification": "EasyModel",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -182,9 +228,9 @@
         "Master2EasyModelConverter": {
             "type": "Tool",
             "description": "",
-            "x": -46.340124610839894,
-            "y": 128.64571906889879,
-            "specification": "Master2JuliaModelConverter",
+            "x": -118.11027047882476,
+            "y": 80.99384492937345,
+            "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
                 "master2easy.csv"
@@ -193,15 +239,70 @@
         "GdxExporter": {
             "type": "Exporter",
             "description": "",
-            "x": 211.64295717786578,
-            "y": 121.72928255981823,
+            "x": 149.83480186113306,
+            "y": 80.52340230639722,
             "settings_packs": [
                 {
                     "output_file_name": "input_data.gdx",
                     "state": 1,
                     "settings": {
-                        "domains": {},
-                        "sets": {},
+                        "domains": {
+                            " unit": {
+                                "tier": 0,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "plant A"
+                                        ],
+                                        [
+                                            "plant B"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            },
+                            " node": {
+                                "tier": 1,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "node 1"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            }
+                        },
+                        "sets": {
+                            " unit__node": {
+                                "tier": 0,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "plant A",
+                                            "node 1"
+                                        ],
+                                        [
+                                            "plant B",
+                                            "node 1"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            }
+                        },
                         "global_parameters_domain_name": ""
                     },
                     "indexing_settings": {},
@@ -209,7 +310,7 @@
                     "none_fallback": 0,
                     "none_export": 0,
                     "scenario": null,
-                    "latest_database_commit": "2020-10-02T14:03:39",
+                    "latest_database_commit": "2020-10-02T14:05:15.924480",
                     "database_url": {
                         "type": "file_url",
                         "relative": true,

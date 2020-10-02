@@ -1,17 +1,20 @@
 {
-    "name": "Master2JuliaModelConverter",
+    "name": "SpineDBConverter",
     "tooltype": "python",
     "includes": [
-        "master_to_julia_model_convert.py"
+        "spine_db_convert.py"
     ],
     "description": "",
     "inputfiles": [],
-    "inputfiles_opt": [],
+    "inputfiles_opt": [
+        "*.csv"
+    ],
     "outputfiles": [],
     "cmdline_args": [
         "@@url_inputs@@",
-        "@@url_outputs@@"
+        "@@url_outputs@@",
+        "@@optional_inputs@@"
     ],
-    "execute_in_work": true,
+    "execute_in_work": false,
     "includes_main_path": "."
 }
