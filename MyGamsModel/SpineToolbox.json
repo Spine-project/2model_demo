@@ -1,0 +1,22 @@
+{
+    "name": "EasyModel",
+    "tooltype": "gams",
+    "includes": [
+        "EasyModel.gms"
+    ],
+    "description": "",
+    "inputfiles": [
+        "input_data.gdx"
+    ],
+    "inputfiles_opt": [],
+    "outputfiles": [
+        "EasyModel.lst",
+        "output_data.gdx"
+    ],
+    "cmdline_args": [
+        "--input_data_file=input_data.gdx",
+        "--output_data_file=output_data.gdx"
+    ],
+    "execute_in_work": true,
+    "includes_main_path": "."
+}
