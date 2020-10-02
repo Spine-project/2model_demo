@@ -14,17 +14,62 @@
                     "type": "path",
                     "relative": true,
                     "path": "scripts/master2juliamodelconverter.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "MyGamsModel/SpineToolbox.json"
                 }
             ]
         },
         "connections": [
             {
                 "from": [
-                    "JuliaModelDB",
+                    "Master2EasyModelConverter",
                     "right"
                 ],
                 "to": [
-                    "MyJuliaModel",
+                    "EasyModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "Master2EasyModelConverter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GdxExporter",
+                    "right"
+                ],
+                "to": [
+                    "EasyModel",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "EasyModelDB",
+                    "right"
+                ],
+                "to": [
+                    "GdxExporter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master2JuliaModelConverter",
+                    "right"
+                ],
+                "to": [
+                    "JuliaModelDB",
                     "left"
                 ]
             },
@@ -40,11 +85,11 @@
             },
             {
                 "from": [
-                    "Master2JuliaModelConverter",
+                    "JuliaModelDB",
                     "right"
                 ],
                 "to": [
-                    "JuliaModelDB",
+                    "MyJuliaModel",
                     "left"
                 ]
             }
@@ -54,8 +99,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -204.87376806605585,
-            "y": 41.00716895855551,
+            "x": -186.8675894293876,
+            "y": 52.165927550293574,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -72,8 +117,8 @@
         "JuliaModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": 57.871814832156424,
-            "y": -43.82468614203164,
+            "x": 86.9442918833536,
+            "y": -11.916618023051825,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -87,11 +132,29 @@
                 }
             }
         },
+        "EasyModelDB": {
+            "type": "Data Store",
+            "description": "",
+            "x": 88.53038731623141,
+            "y": 125.8791444652666,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/easymodeldb/EasyModelDB.sqlite"
+                }
+            }
+        },
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 166.36141079271934,
-            "y": -20.1592238252298,
+            "x": 209.95840451298574,
+            "y": -13.84197078984814,
             "specification": "MyJuliaModel",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -99,11 +162,63 @@
         "Master2JuliaModelConverter": {
             "type": "Tool",
             "description": "",
-            "x": -85.6974061773933,
-            "y": -1.7308320748582418,
+            "x": -58.699860078920324,
+            "y": -7.863164755821629,
             "specification": "Master2JuliaModelConverter",
             "execute_in_work": false,
+            "cmd_line_args": [
+                "master2julia.csv"
+            ]
+        },
+        "EasyModel": {
+            "type": "Tool",
+            "description": "",
+            "x": 334.0638833885921,
+            "y": 125.87914446526656,
+            "specification": "EasyModel",
+            "execute_in_work": false,
             "cmd_line_args": []
+        },
+        "Master2EasyModelConverter": {
+            "type": "Tool",
+            "description": "",
+            "x": -46.340124610839894,
+            "y": 128.64571906889879,
+            "specification": "Master2JuliaModelConverter",
+            "execute_in_work": false,
+            "cmd_line_args": [
+                "master2easy.csv"
+            ]
+        },
+        "GdxExporter": {
+            "type": "Exporter",
+            "description": "",
+            "x": 211.64295717786578,
+            "y": 121.72928255981823,
+            "settings_packs": [
+                {
+                    "output_file_name": "input_data.gdx",
+                    "state": 1,
+                    "settings": {
+                        "domains": {},
+                        "sets": {},
+                        "global_parameters_domain_name": ""
+                    },
+                    "indexing_settings": {},
+                    "merging_settings": {},
+                    "none_fallback": 0,
+                    "none_export": 0,
+                    "scenario": null,
+                    "latest_database_commit": "2020-10-02T14:03:39",
+                    "database_url": {
+                        "type": "file_url",
+                        "relative": true,
+                        "path": ".spinetoolbox/items/easymodeldb/EasyModelDB.sqlite",
+                        "scheme": "sqlite"
+                    }
+                }
+            ],
+            "cancel_on_error": true
         }
     }
 }
