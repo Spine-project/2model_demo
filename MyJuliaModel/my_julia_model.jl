@@ -1,7 +1,7 @@
 using SpineInterface
 using JuMP
 using Clp
-using Plots
+#using Plots
 
 db_url = ARGS[1]
 
@@ -10,17 +10,17 @@ using_spinedb(db_url)
 optimizer = optimizer_with_attributes(Clp.Optimizer)
 m = Model(optimizer)
 
-@variable(m, flow[(u, n) in unit__node()])
+@variable(m, flow[(n, u) in node__unit()])
 
-@constraint(m, unit_capacity[(u, n) in unit__node()], 
-            flow[(unit=u, node=n)] <= capacity(unit=u))
+@constraint(m, unit_capacity[(n, u) in node__unit()], 
+            flow[(node=n, unit=u)] <= capacity(unit=u))
             
 @constraint(m, nodal_balance[n in node()],
-            sum(flow[(unit=u, node=n)] for u in unit__node(node=n)) == demand(node=n))
+            sum(flow[(node=n, unit=u)] for u in node__unit(node=n)) == demand(node=n))
 
 @objective(m, Min, 
-           sum(op_cost(unit=u) * flow[(unit=u, node=n)] for (u, n) in unit__node()))
+           sum(op_cost(unit=u) * flow[(node=n, unit=u)] for (n, u) in node__unit()))
            
 optimize!(m)
 
-bar(value.(flow).data, xticks=((1, 2), u.name for u in unit()), label="flow")
+#bar(value.(flow).data, xticks=((1, 2), u.name for u in unit()), label="flow")
