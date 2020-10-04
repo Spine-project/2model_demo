@@ -13,19 +13,39 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "MyGamsModel/SpineToolbox.json"
+                    "path": "scripts/spinedbconverter.json"
                 },
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "scripts/spinedbconverter.json"
+                    "path": "MyGamsModel/SpineToolbox.json"
                 }
             ]
         },
         "connections": [
             {
                 "from": [
-                    "Master2EasyRenames",
+                    "GamsModelDB",
+                    "right"
+                ],
+                "to": [
+                    "GdxExporter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master2EasyModelConverter",
+                    "right"
+                ],
+                "to": [
+                    "GamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master2GamsRenames",
                     "right"
                 ],
                 "to": [
@@ -75,21 +95,11 @@
             },
             {
                 "from": [
-                    "EasyModelDB",
-                    "right"
-                ],
-                "to": [
-                    "GdxExporter",
-                    "left"
-                ]
-            },
-            {
-                "from": [
                     "GdxExporter",
                     "right"
                 ],
                 "to": [
-                    "EasyModel",
+                    "MyGamsModel",
                     "left"
                 ]
             },
@@ -105,12 +115,22 @@
             },
             {
                 "from": [
-                    "Master2EasyModelConverter",
+                    "MyGamsModel",
                     "right"
                 ],
                 "to": [
-                    "EasyModelDB",
+                    "ImportGamsResults",
+                    "bottom"
+                ]
+            },
+            {
+                "from": [
+                    "ImportGamsResults",
                     "left"
+                ],
+                "to": [
+                    "Results",
+                    "bottom"
                 ]
             }
         ]
@@ -119,8 +139,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -278.56171639987673,
-            "y": 6.272051743342146,
+            "x": -270.3442227747071,
+            "y": 17.74775277080313,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -137,8 +157,8 @@
         "JuliaModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": 12.830148238603527,
-            "y": -56.638494941620635,
+            "x": -41.71086258794554,
+            "y": -40.02840253247834,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -152,11 +172,11 @@
                 }
             }
         },
-        "EasyModelDB": {
+        "GamsModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": 31.410227553029102,
-            "y": 80.57126810250648,
+            "x": -26.897199853018023,
+            "y": 122.14711714809826,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -166,15 +186,33 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/items/easymodeldb/EasyModelDB.sqlite"
+                    "path": ".spinetoolbox/items/gamsmodeldb/GamsModelDB.sqlite"
+                }
+            }
+        },
+        "Results": {
+            "type": "Data Store",
+            "description": "",
+            "x": 204.89508264723634,
+            "y": -105.45927378471595,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/results/Results.sqlite"
                 }
             }
         },
         "Master2JuliaRenames": {
             "type": "Data Connection",
             "description": "",
-            "x": -281.2797332118252,
-            "y": -97.27590773575625,
+            "x": -273.06223958665555,
+            "y": -88.54484331677591,
             "references": [
                 {
                     "type": "path",
@@ -183,11 +221,11 @@
                 }
             ]
         },
-        "Master2EasyRenames": {
+        "Master2GamsRenames": {
             "type": "Data Connection",
             "description": "",
-            "x": -278.93573543505994,
-            "y": 114.8558910614953,
+            "x": -270.0320826577702,
+            "y": 124.95927378471598,
             "references": [
                 {
                     "type": "path",
@@ -199,8 +237,8 @@
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 142.29025475434,
-            "y": -59.14984715260826,
+            "x": 53.26096791272674,
+            "y": -62.18544978341863,
             "specification": "MyJuliaModel",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -208,46 +246,301 @@
         "Master2JuliaModelConverter": {
             "type": "Tool",
             "description": "",
-            "x": -129.88400650271387,
-            "y": -55.51503889534695,
+            "x": -136.48829475461082,
+            "y": -59.983323098055735,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
                 "master2julia.csv"
             ]
         },
-        "EasyModel": {
+        "MyGamsModel": {
             "type": "Tool",
             "description": "",
-            "x": 279.28772140215494,
-            "y": 80.57126810250644,
-            "specification": "EasyModel",
-            "execute_in_work": false,
+            "x": 169.17260722870586,
+            "y": 72.67218813919686,
+            "specification": "MyGamsModel",
+            "execute_in_work": true,
             "cmd_line_args": []
         },
         "Master2EasyModelConverter": {
             "type": "Tool",
             "description": "",
-            "x": -118.11027047882476,
-            "y": 80.99384492937345,
+            "x": -125.09476720628282,
+            "y": 99.87367068500318,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
                 "master2easy.csv"
             ]
         },
+        "ImportGamsResults": {
+            "type": "Importer",
+            "description": "",
+            "x": 280.5622395866555,
+            "y": 11.783244110428022,
+            "mappings": [
+                [
+                    {
+                        "type": "path",
+                        "relative": false,
+                        "path": "output_data.gdx"
+                    },
+                    {
+                        "table_mappings": {
+                            "node": [
+                                {
+                                    "map_type": "ObjectClass",
+                                    "skip_columns": [],
+                                    "read_start_row": 0,
+                                    "name": {
+                                        "map_type": "table_name",
+                                        "reference": "node"
+                                    },
+                                    "parameters": {
+                                        "map_type": "None"
+                                    },
+                                    "import_objects": true,
+                                    "objects": {
+                                        "map_type": "column",
+                                        "reference": 0
+                                    }
+                                }
+                            ],
+                            "unit": [
+                                {
+                                    "map_type": "ObjectClass",
+                                    "skip_columns": [],
+                                    "read_start_row": 0,
+                                    "name": {
+                                        "map_type": "table_name",
+                                        "reference": "unit"
+                                    },
+                                    "parameters": {
+                                        "map_type": "None"
+                                    },
+                                    "import_objects": true,
+                                    "objects": {
+                                        "map_type": "column",
+                                        "reference": 0
+                                    }
+                                }
+                            ],
+                            "r_obj": [
+                                {
+                                    "map_type": "ObjectClass",
+                                    "skip_columns": [],
+                                    "read_start_row": 0,
+                                    "name": {
+                                        "map_type": "table_name",
+                                        "reference": "model"
+                                    },
+                                    "parameters": {
+                                        "map_type": "parameter",
+                                        "name": {
+                                            "map_type": "constant",
+                                            "reference": "objective"
+                                        },
+                                        "parameter_type": "single value",
+                                        "value": {
+                                            "map_type": "column",
+                                            "reference": 0
+                                        },
+                                        "alternative_name": {
+                                            "map_type": "None"
+                                        }
+                                    },
+                                    "import_objects": true,
+                                    "objects": {
+                                        "map_type": "constant",
+                                        "reference": "MyGamsModel"
+                                    }
+                                }
+                            ],
+                            "r_balance_marg": [
+                                {
+                                    "map_type": "ObjectClass",
+                                    "skip_columns": [],
+                                    "read_start_row": 0,
+                                    "name": {
+                                        "map_type": "table_name",
+                                        "reference": "node"
+                                    },
+                                    "parameters": {
+                                        "map_type": "parameter",
+                                        "name": {
+                                            "map_type": "constant",
+                                            "reference": "price"
+                                        },
+                                        "parameter_type": "map",
+                                        "value": {
+                                            "map_type": "column",
+                                            "reference": 2
+                                        },
+                                        "alternative_name": {
+                                            "map_type": "None"
+                                        },
+                                        "extra_dimensions": [
+                                            {
+                                                "map_type": "column",
+                                                "reference": 1
+                                            }
+                                        ],
+                                        "compress": false
+                                    },
+                                    "import_objects": true,
+                                    "objects": {
+                                        "map_type": "column",
+                                        "reference": 0
+                                    }
+                                }
+                            ],
+                            "r_flow": [
+                                {
+                                    "map_type": "ObjectClass",
+                                    "skip_columns": [],
+                                    "read_start_row": 0,
+                                    "name": {
+                                        "map_type": "constant",
+                                        "reference": "unit"
+                                    },
+                                    "parameters": {
+                                        "map_type": "parameter",
+                                        "name": {
+                                            "map_type": "constant",
+                                            "reference": "flow"
+                                        },
+                                        "parameter_type": "map",
+                                        "value": {
+                                            "map_type": "column",
+                                            "reference": 2
+                                        },
+                                        "alternative_name": {
+                                            "map_type": "None"
+                                        },
+                                        "extra_dimensions": [
+                                            {
+                                                "map_type": "column",
+                                                "reference": 1
+                                            }
+                                        ],
+                                        "compress": false
+                                    },
+                                    "import_objects": true,
+                                    "objects": {
+                                        "map_type": "column",
+                                        "reference": 0
+                                    }
+                                }
+                            ]
+                        },
+                        "table_options": {
+                            "node": {},
+                            "unit": {},
+                            "r_obj": {},
+                            "r_balance_marg": {},
+                            "r_flow": {}
+                        },
+                        "table_types": {
+                            "node": {
+                                "0": "string"
+                            },
+                            "unit": {
+                                "0": "string"
+                            },
+                            "r_obj": {
+                                "0": "float"
+                            },
+                            "r_balance_marg": {
+                                "0": "string",
+                                "1": "string",
+                                "2": "float"
+                            },
+                            "r_flow": {
+                                "0": "string",
+                                "1": "string",
+                                "2": "float"
+                            }
+                        },
+                        "table_row_types": {},
+                        "selected_tables": [
+                            "node",
+                            "unit",
+                            "r_obj",
+                            "r_balance_marg",
+                            "r_flow"
+                        ],
+                        "source_type": "GdxConnector"
+                    }
+                ]
+            ],
+            "cancel_on_error": true,
+            "mapping_selection": [
+                [
+                    {
+                        "type": "path",
+                        "relative": false,
+                        "path": "MyGamsModel.lst"
+                    },
+                    false
+                ],
+                [
+                    {
+                        "type": "path",
+                        "relative": false,
+                        "path": "output_data.gdx"
+                    },
+                    true
+                ]
+            ]
+        },
         "GdxExporter": {
             "type": "Exporter",
             "description": "",
-            "x": 149.83480186113306,
-            "y": 80.52340230639722,
+            "x": 74.90157357485305,
+            "y": 98.10188226842536,
             "settings_packs": [
                 {
                     "output_file_name": "input_data.gdx",
                     "state": 1,
                     "settings": {
                         "domains": {
-                            " unit": {
+                            "t": {
+                                "tier": 2,
+                                "records": {
+                                    "indexing_type": "extracted",
+                                    "parameter_name": "demand",
+                                    "indexes": [
+                                        [
+                                            "t0001"
+                                        ],
+                                        [
+                                            "t0002"
+                                        ],
+                                        [
+                                            "t0003"
+                                        ],
+                                        [
+                                            "t0004"
+                                        ],
+                                        [
+                                            "t0005"
+                                        ],
+                                        [
+                                            "t0006"
+                                        ],
+                                        [
+                                            "t0007"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 2,
+                                    "origin": 2,
+                                    "description": ""
+                                }
+                            },
+                            "unit": {
                                 "tier": 0,
                                 "records": {
                                     "indexing_type": "fixed",
@@ -265,7 +558,7 @@
                                     "origin": 1
                                 }
                             },
-                            " node": {
+                            "node": {
                                 "tier": 1,
                                 "records": {
                                     "indexing_type": "fixed",
@@ -282,18 +575,18 @@
                             }
                         },
                         "sets": {
-                            " unit__node": {
+                            "node__unit": {
                                 "tier": 0,
                                 "records": {
                                     "indexing_type": "fixed",
                                     "indexes": [
                                         [
-                                            "plant A",
-                                            "node 1"
+                                            "node 1",
+                                            "plant A"
                                         ],
                                         [
-                                            "plant B",
-                                            "node 1"
+                                            "node 1",
+                                            "plant B"
                                         ]
                                     ]
                                 },
@@ -305,16 +598,24 @@
                         },
                         "global_parameters_domain_name": ""
                     },
-                    "indexing_settings": {},
+                    "indexing_settings": {
+                        "demand": {
+                            "indexing_domain": "t",
+                            "index_position": 1,
+                            "picking": {
+                                "picking": "all 7"
+                            }
+                        }
+                    },
                     "merging_settings": {},
                     "none_fallback": 0,
                     "none_export": 0,
                     "scenario": null,
-                    "latest_database_commit": "2020-10-02T14:05:15.924480",
+                    "latest_database_commit": "2020-10-02T18:23:51.528287",
                     "database_url": {
                         "type": "file_url",
                         "relative": true,
-                        "path": ".spinetoolbox/items/easymodeldb/EasyModelDB.sqlite",
+                        "path": ".spinetoolbox/items/gamsmodeldb/GamsModelDB.sqlite",
                         "scheme": "sqlite"
                     }
                 }

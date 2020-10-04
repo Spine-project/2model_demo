@@ -1,8 +1,8 @@
 {
-    "name": "EasyModel",
+    "name": "MyGamsModel",
     "tooltype": "gams",
     "includes": [
-        "EasyModel.gms"
+        "MyGamsModel.gms"
     ],
     "description": "",
     "inputfiles": [
@@ -10,7 +10,7 @@
     ],
     "inputfiles_opt": [],
     "outputfiles": [
-        "EasyModel.lst",
+        "MyGamsModel.lst",
         "output_data.gdx"
     ],
     "cmdline_args": [
