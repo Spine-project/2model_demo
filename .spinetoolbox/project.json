@@ -25,41 +25,71 @@
         "connections": [
             {
                 "from": [
-                    "GamsModelDB",
+                    "MyJuliaModel",
                     "right"
                 ],
                 "to": [
+                    "Results",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "ImportGamsResults",
+                    "left"
+                ],
+                "to": [
+                    "Results",
+                    "bottom"
+                ]
+            },
+            {
+                "from": [
+                    "MyGamsModel",
+                    "right"
+                ],
+                "to": [
+                    "ImportGamsResults",
+                    "bottom"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "ToGamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
                     "GdxExporter",
+                    "right"
+                ],
+                "to": [
+                    "MyGamsModel",
                     "left"
                 ]
             },
             {
                 "from": [
-                    "Master2EasyModelConverter",
+                    "ToJuliaModelDB",
                     "right"
                 ],
                 "to": [
-                    "GamsModelDB",
+                    "JuliaModelDB",
                     "left"
                 ]
             },
             {
                 "from": [
-                    "Master2GamsRenames",
+                    "Master data",
                     "right"
                 ],
                 "to": [
-                    "Master2EasyModelConverter",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master2JuliaRenames",
-                    "right"
-                ],
-                "to": [
-                    "Master2JuliaModelConverter",
+                    "ToJuliaModelDB",
                     "left"
                 ]
             },
@@ -75,62 +105,42 @@
             },
             {
                 "from": [
-                    "Master data",
+                    "JuliaModelMappings",
                     "right"
                 ],
                 "to": [
-                    "Master2JuliaModelConverter",
+                    "ToJuliaModelDB",
                     "left"
                 ]
             },
             {
                 "from": [
-                    "Master2JuliaModelConverter",
+                    "GamsModelMappings",
                     "right"
                 ],
                 "to": [
-                    "JuliaModelDB",
+                    "ToGamsModelDB",
                     "left"
                 ]
             },
             {
                 "from": [
+                    "ToGamsModelDB",
+                    "right"
+                ],
+                "to": [
+                    "GamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GamsModelDB",
+                    "right"
+                ],
+                "to": [
                     "GdxExporter",
-                    "right"
-                ],
-                "to": [
-                    "MyGamsModel",
                     "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
-                    "Master2EasyModelConverter",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "MyGamsModel",
-                    "right"
-                ],
-                "to": [
-                    "ImportGamsResults",
-                    "bottom"
-                ]
-            },
-            {
-                "from": [
-                    "ImportGamsResults",
-                    "left"
-                ],
-                "to": [
-                    "Results",
-                    "bottom"
                 ]
             }
         ]
@@ -158,7 +168,7 @@
             "type": "Data Store",
             "description": "",
             "x": -41.71086258794554,
-            "y": -40.02840253247834,
+            "y": -41.440285006331806,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -208,10 +218,10 @@
                 }
             }
         },
-        "Master2JuliaRenames": {
+        "JuliaModelMappings": {
             "type": "Data Connection",
             "description": "",
-            "x": -273.06223958665555,
+            "x": -273.76818082358227,
             "y": -88.54484331677591,
             "references": [
                 {
@@ -221,7 +231,7 @@
                 }
             ]
         },
-        "Master2GamsRenames": {
+        "GamsModelMappings": {
             "type": "Data Connection",
             "description": "",
             "x": -270.0320826577702,
@@ -230,24 +240,24 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "MyGamsModel/master2easy.csv"
+                    "path": "MyGamsModel/master2Gams.csv"
                 }
             ]
         },
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 53.26096791272674,
-            "y": -62.18544978341863,
+            "x": 57.49661533428717,
+            "y": -60.773567309565166,
             "specification": "MyJuliaModel",
             "execute_in_work": false,
             "cmd_line_args": []
         },
-        "Master2JuliaModelConverter": {
+        "ToJuliaModelDB": {
             "type": "Tool",
             "description": "",
             "x": -136.48829475461082,
-            "y": -59.983323098055735,
+            "y": -60.68926433498247,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -263,11 +273,11 @@
             "execute_in_work": true,
             "cmd_line_args": []
         },
-        "Master2EasyModelConverter": {
+        "ToGamsModelDB": {
             "type": "Tool",
             "description": "",
             "x": -125.09476720628282,
-            "y": 99.87367068500318,
+            "y": 99.16772944807644,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -480,17 +490,17 @@
                     {
                         "type": "path",
                         "relative": false,
-                        "path": "MyGamsModel.lst"
+                        "path": "output_data.gdx"
                     },
-                    false
+                    true
                 ],
                 [
                     {
                         "type": "path",
                         "relative": false,
-                        "path": "output_data.gdx"
+                        "path": "MyGamsModel.lst"
                     },
-                    true
+                    false
                 ]
             ]
         },
@@ -505,6 +515,21 @@
                     "state": 1,
                     "settings": {
                         "domains": {
+                            "node": {
+                                "tier": 1,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "node 1"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            },
                             "t": {
                                 "tier": 2,
                                 "records": {
@@ -550,21 +575,6 @@
                                         ],
                                         [
                                             "plant B"
-                                        ]
-                                    ]
-                                },
-                                "metadata": {
-                                    "exportable": 1,
-                                    "origin": 1
-                                }
-                            },
-                            "node": {
-                                "tier": 1,
-                                "records": {
-                                    "indexing_type": "fixed",
-                                    "indexes": [
-                                        [
-                                            "node 1"
                                         ]
                                     ]
                                 },
