@@ -3,9 +3,6 @@ using Pkg
 # Activate environment at current directory
 Pkg.activate(dirname(@__FILE__))
 
-# Add Spine Julia registry
-pkg"registry add https://github.com/Spine-project/SpineJuliaRegistry.git"
-
 # Download and install all required packages
 Pkg.instantiate()
 

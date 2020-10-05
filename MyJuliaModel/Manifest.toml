@@ -289,6 +289,8 @@ version = "0.10.3"
 [[SpineInterface]]
 deps = ["DataStructures", "Dates", "PyCall", "Statistics", "Suppressor"]
 git-tree-sha1 = "757379fa92668748980f8915e8b8660fd5b61af1"
+repo-rev = "no-auto-install-spinedb_api"
+repo-url = "https://github.com/Spine-project/SpineInterface.jl"
 uuid = "0cda1612-498a-11e9-3c92-77fa82595a4f"
 version = "0.3.8"
 
