@@ -30,6 +30,12 @@ node__unit__time = [(node=n, unit=u, time=t) for (n, u) in node__unit() for t in
            
 optimize!(m)
 
-# TODO
-#output_db_url = ARGS[2]
-#write_parameters(, output_db_url)
+# Write results
+output_db_url = ARGS[2]
+parameters = Dict("flow" =>
+    Dict(
+        (node=n, unit=u, time=t) => value.(flow[(node=n, unit=u, time=t)])
+        for (n, u, t) in node__unit__time
+    )
+)
+write_parameters(parameters, output_db_url)
