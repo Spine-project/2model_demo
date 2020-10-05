@@ -25,91 +25,21 @@
         "connections": [
             {
                 "from": [
-                    "ImportGamsResults",
-                    "left"
-                ],
-                "to": [
-                    "Results",
-                    "bottom"
-                ]
-            },
-            {
-                "from": [
-                    "MyJuliaModel",
+                    "GamsModelDB",
                     "right"
                 ],
                 "to": [
-                    "Results",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "MyGamsModel",
-                    "right"
-                ],
-                "to": [
-                    "ImportGamsResults",
-                    "bottom"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
-                    "ToGamsModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
                     "GdxExporter",
-                    "right"
-                ],
-                "to": [
-                    "MyGamsModel",
                     "left"
                 ]
             },
             {
                 "from": [
-                    "ToJuliaModelDB",
+                    "ToGamsModelDB",
                     "right"
                 ],
                 "to": [
-                    "JuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
-                    "ToJuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "JuliaModelDB",
-                    "right"
-                ],
-                "to": [
-                    "MyJuliaModel",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "JuliaModelMappings",
-                    "right"
-                ],
-                "to": [
-                    "ToJuliaModelDB",
+                    "GamsModelDB",
                     "left"
                 ]
             },
@@ -125,22 +55,92 @@
             },
             {
                 "from": [
-                    "ToGamsModelDB",
+                    "JuliaModelMappings",
                     "right"
                 ],
                 "to": [
-                    "GamsModelDB",
+                    "ToJuliaModelDB",
                     "left"
                 ]
             },
             {
                 "from": [
-                    "GamsModelDB",
+                    "JuliaModelDB",
                     "right"
                 ],
                 "to": [
-                    "GdxExporter",
+                    "MyJuliaModel",
                     "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "ToJuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "ToJuliaModelDB",
+                    "right"
+                ],
+                "to": [
+                    "JuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GdxExporter",
+                    "right"
+                ],
+                "to": [
+                    "MyGamsModel",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "ToGamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "MyGamsModel",
+                    "right"
+                ],
+                "to": [
+                    "ImportGamsResults",
+                    "bottom"
+                ]
+            },
+            {
+                "from": [
+                    "MyJuliaModel",
+                    "right"
+                ],
+                "to": [
+                    "Results",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "ImportGamsResults",
+                    "left"
+                ],
+                "to": [
+                    "Results",
+                    "bottom"
                 ]
             }
         ]
@@ -149,8 +149,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -273.4912521562437,
-            "y": 23.211376995684205,
+            "x": -280.6719363999691,
+            "y": 23.84651911765319,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -167,8 +167,8 @@
         "JuliaModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": -44.85789196948218,
-            "y": -35.97666078145073,
+            "x": -35.46941792713781,
+            "y": -45.77395165441456,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -185,8 +185,8 @@
         "GamsModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": -30.044229234554663,
-            "y": 127.61074137297933,
+            "x": -37.22491347828007,
+            "y": 128.85955602406202,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -203,8 +203,8 @@
         "Results": {
             "type": "Data Store",
             "description": "",
-            "x": 277.61407586703683,
-            "y": -113.42052731176238,
+            "x": 270.4333916233114,
+            "y": -112.78538518979337,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -221,8 +221,8 @@
         "JuliaModelMappings": {
             "type": "Data Connection",
             "description": "",
-            "x": -276.9152102051189,
-            "y": -83.08121909189484,
+            "x": -284.0958944488443,
+            "y": -81.83240444081216,
             "references": [
                 {
                     "type": "path",
@@ -234,8 +234,8 @@
         "GamsModelMappings": {
             "type": "Data Connection",
             "description": "",
-            "x": -273.17911203930686,
-            "y": 130.42289800959705,
+            "x": -280.35979628303227,
+            "y": 131.67171266067973,
             "references": [
                 {
                     "type": "path",
@@ -247,8 +247,8 @@
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 84.00926031639071,
-            "y": -68.57874477368101,
+            "x": 85.41999148025702,
+            "y": -72.8529828846216,
             "specification": "MyJuliaModel",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -256,8 +256,8 @@
         "ToJuliaModelDB": {
             "type": "Tool",
             "description": "",
-            "x": -139.63532413614746,
-            "y": -55.225640110101395,
+            "x": -146.81600837987287,
+            "y": -53.97682545901871,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -267,8 +267,8 @@
         "MyGamsModel": {
             "type": "Tool",
             "description": "",
-            "x": 166.02557784716922,
-            "y": 78.13581236407794,
+            "x": 158.8448936034438,
+            "y": 79.38462701516062,
             "specification": "MyGamsModel",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -276,8 +276,8 @@
         "ToGamsModelDB": {
             "type": "Tool",
             "description": "",
-            "x": -128.24179658781947,
-            "y": 104.63135367295752,
+            "x": -135.42248083154487,
+            "y": 105.8801683240402,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -287,8 +287,8 @@
         "ImportGamsResults": {
             "type": "Importer",
             "description": "",
-            "x": 291.7765786925697,
-            "y": 36.60349542709065,
+            "x": 284.59589444884426,
+            "y": 37.85231007817333,
             "mappings": [
                 [
                     {
@@ -490,40 +490,138 @@
                     {
                         "type": "path",
                         "relative": false,
-                        "path": "MyGamsModel.lst"
+                        "path": "output_data.gdx"
                     },
-                    false
+                    true
                 ],
                 [
                     {
                         "type": "path",
                         "relative": false,
-                        "path": "output_data.gdx"
+                        "path": "MyGamsModel.lst"
                     },
-                    true
+                    false
                 ]
             ]
         },
         "GdxExporter": {
             "type": "Exporter",
             "description": "",
-            "x": 71.7545441933164,
-            "y": 103.56550649330643,
+            "x": 63.34651489136361,
+            "y": 107.2690112608439,
             "settings_packs": [
                 {
-                    "output_file_name": "",
+                    "output_file_name": "input_data.gdx",
                     "state": 1,
                     "settings": {
-                        "domains": {},
-                        "sets": {},
+                        "domains": {
+                            "node": {
+                                "tier": 0,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "node 1"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            },
+                            "t": {
+                                "tier": 2,
+                                "records": {
+                                    "indexing_type": "extracted",
+                                    "parameter_name": "demand",
+                                    "indexes": [
+                                        [
+                                            "t0001"
+                                        ],
+                                        [
+                                            "t0002"
+                                        ],
+                                        [
+                                            "t0003"
+                                        ],
+                                        [
+                                            "t0004"
+                                        ],
+                                        [
+                                            "t0005"
+                                        ],
+                                        [
+                                            "t0006"
+                                        ],
+                                        [
+                                            "t0007"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 2,
+                                    "origin": 2,
+                                    "description": ""
+                                }
+                            },
+                            "unit": {
+                                "tier": 1,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "plant A"
+                                        ],
+                                        [
+                                            "plant B"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            }
+                        },
+                        "sets": {
+                            "node__unit": {
+                                "tier": 0,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "node 1",
+                                            "plant A"
+                                        ],
+                                        [
+                                            "node 1",
+                                            "plant B"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            }
+                        },
                         "global_parameters_domain_name": ""
                     },
-                    "indexing_settings": {},
+                    "indexing_settings": {
+                        "demand": {
+                            "indexing_domain": "t",
+                            "index_position": 1,
+                            "picking": {
+                                "picking": "all 7"
+                            }
+                        }
+                    },
                     "merging_settings": {},
                     "none_fallback": 0,
                     "none_export": 0,
                     "scenario": null,
-                    "latest_database_commit": "2020-10-05T10:39:20",
+                    "latest_database_commit": "2020-10-05T09:39:00.734922",
                     "database_url": {
                         "type": "file_url",
                         "relative": true,
