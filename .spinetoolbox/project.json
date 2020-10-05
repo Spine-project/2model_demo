@@ -240,7 +240,7 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "MyGamsModel/master2Gams.csv"
+                    "path": "MyGamsModel/master2gams.csv"
                 }
             ]
         },
@@ -260,9 +260,7 @@
             "y": -53.97682545901871,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
-            "cmd_line_args": [
-                "master2julia.csv"
-            ]
+            "cmd_line_args": []
         },
         "MyGamsModel": {
             "type": "Tool",
@@ -280,9 +278,7 @@
             "y": 105.8801683240402,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
-            "cmd_line_args": [
-                "master2easy.csv"
-            ]
+            "cmd_line_args": []
         },
         "ImportGamsResults": {
             "type": "Importer",
