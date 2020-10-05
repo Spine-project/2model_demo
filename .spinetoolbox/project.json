@@ -250,7 +250,7 @@
             "x": 85.41999148025702,
             "y": -72.8529828846216,
             "specification": "MyJuliaModel",
-            "execute_in_work": true,
+            "execute_in_work": false,
             "cmd_line_args": []
         },
         "ToJuliaModelDB": {
