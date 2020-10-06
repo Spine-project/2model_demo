@@ -2,5 +2,5 @@ grid_node, node
 powerplant, unit
 net_capacity, capacity
 operating_cost, var_cost
-grid_node__powerplant, node__unit
+grid_node__power_plant, node__unit
 elec_demand, demand
