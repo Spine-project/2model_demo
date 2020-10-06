@@ -1,7 +1,7 @@
 {
     "project": {
         "version": 2,
-        "name": "EMP-E-2models-demo",
+        "name": "EMP-E-scenarios",
         "description": "",
         "specifications": {
             "Tool": [
@@ -25,22 +25,12 @@
         "connections": [
             {
                 "from": [
-                    "GamsModelDB",
+                    "MyGamsModel",
                     "right"
                 ],
                 "to": [
-                    "GdxExporter",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "ToGamsModelDB",
-                    "right"
-                ],
-                "to": [
-                    "GamsModelDB",
-                    "left"
+                    "ImportGamsResults",
+                    "bottom"
                 ]
             },
             {
@@ -50,6 +40,56 @@
                 ],
                 "to": [
                     "ToGamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "ToJuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "ToGamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GdxExporter",
+                    "right"
+                ],
+                "to": [
+                    "MyGamsModel",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "ToJuliaModelDB",
+                    "right"
+                ],
+                "to": [
+                    "JuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "JuliaModelDB",
+                    "right"
+                ],
+                "to": [
+                    "MyJuliaModel",
                     "left"
                 ]
             },
@@ -65,62 +105,22 @@
             },
             {
                 "from": [
-                    "JuliaModelDB",
-                    "right"
-                ],
-                "to": [
-                    "MyJuliaModel",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
-                    "ToJuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "ToJuliaModelDB",
-                    "right"
-                ],
-                "to": [
-                    "JuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "GdxExporter",
-                    "right"
-                ],
-                "to": [
-                    "MyGamsModel",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
                     "ToGamsModelDB",
+                    "right"
+                ],
+                "to": [
+                    "GamsModelDB",
                     "left"
                 ]
             },
             {
                 "from": [
-                    "MyGamsModel",
+                    "GamsModelDB",
                     "right"
                 ],
                 "to": [
-                    "ImportGamsResults",
-                    "bottom"
+                    "GdxExporter",
+                    "left"
                 ]
             },
             {
@@ -129,18 +129,38 @@
                     "right"
                 ],
                 "to": [
-                    "Results",
+                    "JuliaResults",
                     "left"
                 ]
             },
             {
                 "from": [
                     "ImportGamsResults",
+                    "right"
+                ],
+                "to": [
+                    "GamsResults",
+                    "bottom"
+                ]
+            },
+            {
+                "from": [
+                    "GamsResults",
                     "left"
                 ],
                 "to": [
-                    "Results",
+                    "ShowResults",
                     "bottom"
+                ]
+            },
+            {
+                "from": [
+                    "JuliaResults",
+                    "right"
+                ],
+                "to": [
+                    "ShowResults",
+                    "left"
                 ]
             }
         ]
@@ -149,8 +169,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -280.6719363999691,
-            "y": 23.84651911765319,
+            "x": -309.65618713061957,
+            "y": 36.153173443583654,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -167,8 +187,8 @@
         "JuliaModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": -35.46941792713781,
-            "y": -45.77395165441456,
+            "x": -66.49819882033866,
+            "y": -34.117842678733396,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -185,8 +205,8 @@
         "GamsModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": -37.22491347828007,
-            "y": 128.85955602406202,
+            "x": -69.52576038569512,
+            "y": 139.8581507016471,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -200,11 +220,11 @@
                 }
             }
         },
-        "Results": {
+        "GamsResults": {
             "type": "Data Store",
             "description": "",
-            "x": 270.4333916233114,
-            "y": -112.78538518979337,
+            "x": 338.07471802649167,
+            "y": -36.692875000702145,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -214,15 +234,33 @@
                 "database": {
                     "type": "path",
                     "relative": true,
-                    "path": ".spinetoolbox/items/results/Results.sqlite"
+                    "path": ".spinetoolbox/items/gamsresults/GamsResults.sqlite"
+                }
+            }
+        },
+        "JuliaResults": {
+            "type": "Data Store",
+            "description": "",
+            "x": 179.82976874438765,
+            "y": -92.66687413398066,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/juliaresults/JuliaResults.sqlite"
                 }
             }
         },
         "JuliaModelMappings": {
             "type": "Data Connection",
             "description": "",
-            "x": -284.0958944488443,
-            "y": -81.83240444081216,
+            "x": -315.0817127600673,
+            "y": -70.83380976322704,
             "references": [
                 {
                     "type": "path",
@@ -234,8 +272,8 @@
         "GamsModelMappings": {
             "type": "Data Connection",
             "description": "",
-            "x": -280.35979628303227,
-            "y": 131.67171266067973,
+            "x": -312.5747180264916,
+            "y": 146.3576176349738,
             "references": [
                 {
                     "type": "path",
@@ -247,8 +285,8 @@
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 85.41999148025702,
-            "y": -72.8529828846216,
+            "x": 54.434173169034025,
+            "y": -61.85438820703648,
             "specification": "MyJuliaModel",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -256,8 +294,8 @@
         "ToJuliaModelDB": {
             "type": "Tool",
             "description": "",
-            "x": -146.81600837987287,
-            "y": -53.97682545901871,
+            "x": -177.80182669109587,
+            "y": -42.978230781433595,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -265,8 +303,8 @@
         "MyGamsModel": {
             "type": "Tool",
             "description": "",
-            "x": 158.8448936034438,
-            "y": 79.38462701516062,
+            "x": 127.85907529222081,
+            "y": 90.38322169274574,
             "specification": "MyGamsModel",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -274,17 +312,23 @@
         "ToGamsModelDB": {
             "type": "Tool",
             "description": "",
-            "x": -135.42248083154487,
-            "y": 105.8801683240402,
+            "x": -174.25550813794223,
+            "y": 116.13532353957356,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": []
         },
+        "ShowResults": {
+            "type": "View",
+            "description": "",
+            "x": 285.03205643975105,
+            "y": -126.85761763497379
+        },
         "ImportGamsResults": {
             "type": "Importer",
             "description": "",
-            "x": 284.59589444884426,
-            "y": 37.85231007817333,
+            "x": 253.61007613762126,
+            "y": 48.85090475575845,
             "mappings": [
                 [
                     {
@@ -342,15 +386,21 @@
                                         "reference": "model"
                                     },
                                     "parameters": {
-                                        "map_type": "parameter",
+                                        "map_type": "ParameterValue",
                                         "name": {
                                             "map_type": "constant",
                                             "reference": "objective"
                                         },
-                                        "parameter_type": "single value",
                                         "value": {
-                                            "map_type": "column",
-                                            "reference": 0
+                                            "map_type": "parameter",
+                                            "alternative_name": {
+                                                "map_type": "None"
+                                            },
+                                            "value_type": "single value",
+                                            "main_value": {
+                                                "map_type": "column",
+                                                "reference": 0
+                                            }
                                         },
                                         "alternative_name": {
                                             "map_type": "None"
@@ -373,15 +423,28 @@
                                         "reference": "node"
                                     },
                                     "parameters": {
-                                        "map_type": "parameter",
+                                        "map_type": "ParameterValue",
                                         "name": {
                                             "map_type": "constant",
                                             "reference": "price"
                                         },
-                                        "parameter_type": "map",
                                         "value": {
-                                            "map_type": "column",
-                                            "reference": 2
+                                            "map_type": "parameter",
+                                            "alternative_name": {
+                                                "map_type": "None"
+                                            },
+                                            "extra_dimensions": [
+                                                {
+                                                    "map_type": "column",
+                                                    "reference": 1
+                                                }
+                                            ],
+                                            "compress": false,
+                                            "value_type": "map",
+                                            "main_value": {
+                                                "map_type": "column",
+                                                "reference": 2
+                                            }
                                         },
                                         "alternative_name": {
                                             "map_type": "None"
@@ -411,15 +474,28 @@
                                         "reference": "unit"
                                     },
                                     "parameters": {
-                                        "map_type": "parameter",
+                                        "map_type": "ParameterValue",
                                         "name": {
                                             "map_type": "constant",
                                             "reference": "flow"
                                         },
-                                        "parameter_type": "map",
                                         "value": {
-                                            "map_type": "column",
-                                            "reference": 2
+                                            "map_type": "parameter",
+                                            "alternative_name": {
+                                                "map_type": "None"
+                                            },
+                                            "extra_dimensions": [
+                                                {
+                                                    "map_type": "column",
+                                                    "reference": 1
+                                                }
+                                            ],
+                                            "compress": false,
+                                            "value_type": "map",
+                                            "main_value": {
+                                                "map_type": "column",
+                                                "reference": 2
+                                            }
                                         },
                                         "alternative_name": {
                                             "map_type": "None"
@@ -486,38 +562,41 @@
                     {
                         "type": "path",
                         "relative": false,
-                        "path": "output_data.gdx"
+                        "path": "MyGamsModel.lst"
                     },
-                    true
+                    false
                 ],
                 [
                     {
                         "type": "path",
                         "relative": false,
-                        "path": "MyGamsModel.lst"
+                        "path": "output_data.gdx"
                     },
-                    false
+                    true
                 ]
             ]
         },
         "GdxExporter": {
             "type": "Exporter",
             "description": "",
-            "x": 63.34651489136361,
-            "y": 107.2690112608439,
+            "x": 32.97524829625877,
+            "y": 118.26760593842901,
             "settings_packs": [
                 {
                     "output_file_name": "input_data.gdx",
                     "state": 1,
                     "settings": {
                         "domains": {
-                            "node": {
-                                "tier": 0,
+                            "unit": {
+                                "tier": 1,
                                 "records": {
                                     "indexing_type": "fixed",
                                     "indexes": [
                                         [
-                                            "node 1"
+                                            "plant A"
+                                        ],
+                                        [
+                                            "plant B"
                                         ]
                                     ]
                                 },
@@ -561,16 +640,13 @@
                                     "description": ""
                                 }
                             },
-                            "unit": {
-                                "tier": 1,
+                            "node": {
+                                "tier": 0,
                                 "records": {
                                     "indexing_type": "fixed",
                                     "indexes": [
                                         [
-                                            "plant A"
-                                        ],
-                                        [
-                                            "plant B"
+                                            "node 1"
                                         ]
                                     ]
                                 },
@@ -617,7 +693,7 @@
                     "none_fallback": 0,
                     "none_export": 0,
                     "scenario": null,
-                    "latest_database_commit": "2020-10-05T09:39:00.734922",
+                    "latest_database_commit": "2020-10-06T11:52:07.119500",
                     "database_url": {
                         "type": "file_url",
                         "relative": true,
