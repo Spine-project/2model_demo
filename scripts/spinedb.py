@@ -35,6 +35,8 @@ class SpineDB(object):
             self._db_map = DatabaseMapping(url)
         except SpineDBAPIError:
             logging.error(f"Could not open db at {url} for reading")
+        except SpineDBVersionError:
+            logging.error(f"Wrong Spine DB version in {url}")
 
     def _open_db_writing(self, url: str):
         """Open Spine DB at url
@@ -43,6 +45,8 @@ class SpineDB(object):
             self._db_map = DiffDatabaseMapping(url)
         except SpineDBAPIError:
             logging.error(f"Could not open db at {url} for writing")
+        except SpineDBVersionError:
+            logging.error(f"Wrong Spine DB version in {url}")
 
     def _create_db(self, url: str):
         """Create Spine DB at url
