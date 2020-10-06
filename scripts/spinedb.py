@@ -5,7 +5,9 @@ import logging
 
 from sqlalchemy.exc import ArgumentError as SQLAlchemyArgumentError
 from spinedb_api import DatabaseMapping, DiffDatabaseMapping
-from spinedb_api.exception import SpineDBAPIError, SpineIntegrityError
+from spinedb_api.exception import (
+    SpineDBAPIError, SpineIntegrityError, SpineDBVersionError
+)
 from spinedb_api import import_functions
 from spinedb_api import export_functions
 from spinedb_api.helpers import create_new_spine_database
@@ -33,20 +35,24 @@ class SpineDB(object):
         """
         try:
             self._db_map = DatabaseMapping(url)
-        except SpineDBAPIError:
-            logging.error(f"Could not open db at {url} for reading")
         except SpineDBVersionError:
             logging.error(f"Wrong Spine DB version in {url}")
+            raise RuntimeError
+        except SpineDBAPIError:
+            logging.error(f"Could not open db at {url} for reading")
+            raise RuntimeError
 
     def _open_db_writing(self, url: str):
         """Open Spine DB at url
         """
         try:
             self._db_map = DiffDatabaseMapping(url)
-        except SpineDBAPIError:
-            logging.error(f"Could not open db at {url} for writing")
         except SpineDBVersionError:
             logging.error(f"Wrong Spine DB version in {url}")
+            raise RuntimeError
+        except SpineDBAPIError:
+            logging.error(f"Could not open db at {url} for writing")
+            raise RuntimeError
 
     def _create_db(self, url: str):
         """Create Spine DB at url
