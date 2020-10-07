@@ -25,71 +25,61 @@
         "connections": [
             {
                 "from": [
-                    "MyGamsModel",
+                    "JuliaResults",
                     "right"
                 ],
                 "to": [
-                    "ImportGamsResults",
+                    "ShowResults",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GamsResults",
+                    "left"
+                ],
+                "to": [
+                    "ShowResults",
                     "bottom"
                 ]
             },
             {
                 "from": [
-                    "GamsModelMappings",
+                    "ImportGamsResults",
                     "right"
                 ],
                 "to": [
-                    "ToGamsModelDB",
-                    "left"
+                    "GamsResults",
+                    "bottom"
                 ]
             },
             {
                 "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
-                    "ToJuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
-                    "ToGamsModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "GdxExporter",
-                    "right"
-                ],
-                "to": [
-                    "MyGamsModel",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "ToJuliaModelDB",
-                    "right"
-                ],
-                "to": [
-                    "JuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "JuliaModelDB",
-                    "right"
-                ],
-                "to": [
                     "MyJuliaModel",
+                    "right"
+                ],
+                "to": [
+                    "JuliaResults",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GamsModelDB",
+                    "right"
+                ],
+                "to": [
+                    "GdxExporter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "ToGamsModelDB",
+                    "right"
+                ],
+                "to": [
+                    "GamsModelDB",
                     "left"
                 ]
             },
@@ -105,61 +95,91 @@
             },
             {
                 "from": [
-                    "ToGamsModelDB",
+                    "JuliaModelDB",
                     "right"
                 ],
                 "to": [
-                    "GamsModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "GamsModelDB",
-                    "right"
-                ],
-                "to": [
-                    "GdxExporter",
-                    "left"
-                ]
-            },
-            {
-                "from": [
                     "MyJuliaModel",
-                    "right"
-                ],
-                "to": [
-                    "JuliaResults",
                     "left"
                 ]
             },
             {
                 "from": [
+                    "ToJuliaModelDB",
+                    "right"
+                ],
+                "to": [
+                    "JuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GdxExporter",
+                    "right"
+                ],
+                "to": [
+                    "MyGamsModel",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "ToGamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "right"
+                ],
+                "to": [
+                    "ToJuliaModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "GamsModelMappings",
+                    "right"
+                ],
+                "to": [
+                    "ToGamsModelDB",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "MyGamsModel",
+                    "right"
+                ],
+                "to": [
                     "ImportGamsResults",
-                    "right"
-                ],
-                "to": [
-                    "GamsResults",
                     "bottom"
                 ]
             },
             {
                 "from": [
-                    "GamsResults",
+                    "Link to original data",
+                    "bottom"
+                ],
+                "to": [
+                    "Import data",
                     "left"
-                ],
-                "to": [
-                    "ShowResults",
-                    "bottom"
                 ]
             },
             {
                 "from": [
-                    "JuliaResults",
+                    "Import data",
                     "right"
                 ],
                 "to": [
-                    "ShowResults",
+                    "Master data",
                     "left"
                 ]
             }
@@ -169,8 +189,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -309.65618713061957,
-            "y": 36.153173443583654,
+            "x": -242.15047655868023,
+            "y": 27.778390094864726,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -187,8 +207,8 @@
         "JuliaModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": -66.49819882033866,
-            "y": -34.117842678733396,
+            "x": 34.96015850082733,
+            "y": -32.08355274420033,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -205,8 +225,8 @@
         "GamsModelDB": {
             "type": "Data Store",
             "description": "",
-            "x": -69.52576038569512,
-            "y": 139.8581507016471,
+            "x": 32.59040863794813,
+            "y": 141.234628933703,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -223,8 +243,8 @@
         "GamsResults": {
             "type": "Data Store",
             "description": "",
-            "x": 338.07471802649167,
-            "y": -36.692875000702145,
+            "x": 438.87526364518044,
+            "y": -34.65858506616908,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -241,8 +261,8 @@
         "JuliaResults": {
             "type": "Data Store",
             "description": "",
-            "x": 179.82976874438765,
-            "y": -92.66687413398066,
+            "x": 280.6303143630764,
+            "y": -90.63258419944759,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -259,8 +279,8 @@
         "JuliaModelMappings": {
             "type": "Data Connection",
             "description": "",
-            "x": -315.0817127600673,
-            "y": -70.83380976322704,
+            "x": -214.28116714137855,
+            "y": -68.79951982869397,
             "references": [
                 {
                     "type": "path",
@@ -272,8 +292,8 @@
         "GamsModelMappings": {
             "type": "Data Connection",
             "description": "",
-            "x": -312.5747180264916,
-            "y": 146.3576176349738,
+            "x": -211.77417240780284,
+            "y": 148.39190756950686,
             "references": [
                 {
                     "type": "path",
@@ -282,11 +302,24 @@
                 }
             ]
         },
+        "Link to original data": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -415.87526364518044,
+            "y": -90.77801494185739,
+            "references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "original_data.xlsx"
+                }
+            ]
+        },
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 54.434173169034025,
-            "y": -61.85438820703648,
+            "x": 155.23471878772278,
+            "y": -59.820098272503415,
             "specification": "MyJuliaModel",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -294,8 +327,8 @@
         "ToJuliaModelDB": {
             "type": "Tool",
             "description": "",
-            "x": -177.80182669109587,
-            "y": -42.978230781433595,
+            "x": -80.29033958479329,
+            "y": -39.628317441946066,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -303,8 +336,8 @@
         "MyGamsModel": {
             "type": "Tool",
             "description": "",
-            "x": 127.85907529222081,
-            "y": 90.38322169274574,
+            "x": 228.65962091090958,
+            "y": 92.4175116272788,
             "specification": "MyGamsModel",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -312,8 +345,8 @@
         "ToGamsModelDB": {
             "type": "Tool",
             "description": "",
-            "x": -174.25550813794223,
-            "y": 116.13532353957356,
+            "x": -74.11277422173072,
+            "y": 118.16961347410661,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": []
@@ -321,14 +354,14 @@
         "ShowResults": {
             "type": "View",
             "description": "",
-            "x": 285.03205643975105,
-            "y": -126.85761763497379
+            "x": 383.64907290506284,
+            "y": -128.89190756950686
         },
         "ImportGamsResults": {
             "type": "Importer",
             "description": "",
-            "x": 253.61007613762126,
-            "y": 48.85090475575845,
+            "x": 346.5168813265833,
+            "y": 48.253947880382604,
             "mappings": [
                 [
                     {
@@ -576,19 +609,196 @@
                 ]
             ]
         },
+        "Import data": {
+            "type": "Importer",
+            "description": "",
+            "x": -350.75190509993485,
+            "y": 27.62809150404355,
+            "mappings": [
+                [
+                    {
+                        "type": "path",
+                        "relative": true,
+                        "path": "original_data.xlsx"
+                    },
+                    {
+                        "table_mappings": {
+                            "grid_nodes": [
+                                {
+                                    "map_type": "ObjectClass",
+                                    "skip_columns": [
+                                        0
+                                    ],
+                                    "read_start_row": 0,
+                                    "name": {
+                                        "map_type": "constant",
+                                        "reference": "grid_node"
+                                    },
+                                    "parameters": {
+                                        "map_type": "ParameterValue",
+                                        "name": {
+                                            "map_type": "constant",
+                                            "reference": "elec_demand"
+                                        },
+                                        "value": {
+                                            "main_value": {
+                                                "map_type": "None"
+                                            },
+                                            "value_type": "map",
+                                            "extra_dimensions": [
+                                                {
+                                                    "map_type": "column",
+                                                    "reference": 1
+                                                }
+                                            ],
+                                            "compress": false
+                                        },
+                                        "alternative_name": {
+                                            "map_type": "None"
+                                        }
+                                    },
+                                    "import_objects": true,
+                                    "objects": {
+                                        "map_type": "row",
+                                        "reference": 1
+                                    },
+                                    "mapping_name": "Mapping 0"
+                                }
+                            ],
+                            "plants": [
+                                {
+                                    "map_type": "ObjectClass",
+                                    "skip_columns": [],
+                                    "read_start_row": 0,
+                                    "name": {
+                                        "map_type": "constant",
+                                        "reference": "powerplant"
+                                    },
+                                    "parameters": {
+                                        "map_type": "ParameterValue",
+                                        "name": {
+                                            "map_type": "row",
+                                            "reference": 1
+                                        },
+                                        "value": {
+                                            "main_value": {
+                                                "map_type": "None"
+                                            },
+                                            "value_type": "single value"
+                                        },
+                                        "alternative_name": {
+                                            "map_type": "None"
+                                        }
+                                    },
+                                    "import_objects": true,
+                                    "objects": {
+                                        "map_type": "column",
+                                        "reference": 0
+                                    },
+                                    "mapping_name": "Mapping 0"
+                                }
+                            ],
+                            "plants_in_grid_nodes": [
+                                {
+                                    "map_type": "RelationshipClass",
+                                    "skip_columns": [],
+                                    "read_start_row": 2,
+                                    "name": {
+                                        "map_type": "constant",
+                                        "reference": "grid_node__power_plant"
+                                    },
+                                    "parameters": {
+                                        "map_type": "None"
+                                    },
+                                    "import_objects": true,
+                                    "objects": [
+                                        {
+                                            "map_type": "column",
+                                            "reference": 0
+                                        },
+                                        {
+                                            "map_type": "column",
+                                            "reference": 1
+                                        }
+                                    ],
+                                    "object_classes": [
+                                        {
+                                            "map_type": "constant",
+                                            "reference": "grid_node"
+                                        },
+                                        {
+                                            "map_type": "constant",
+                                            "reference": "powerplant"
+                                        }
+                                    ],
+                                    "mapping_name": "Mapping 0"
+                                }
+                            ]
+                        },
+                        "table_options": {},
+                        "table_types": {
+                            "grid_nodes": {
+                                "0": "string",
+                                "1": "string",
+                                "2": "float",
+                                "3": "float"
+                            },
+                            "plants": {
+                                "0": "string",
+                                "1": "float",
+                                "2": "float",
+                                "3": "float"
+                            },
+                            "plants_in_grid_nodes": {
+                                "0": "string",
+                                "1": "string"
+                            }
+                        },
+                        "table_row_types": {
+                            "grid_nodes": {
+                                "1": "string"
+                            },
+                            "plants": {
+                                "1": "string"
+                            },
+                            "plants_in_grid_nodes": {
+                                "0": "string"
+                            }
+                        },
+                        "selected_tables": [
+                            "grid_nodes",
+                            "plants",
+                            "plants_in_grid_nodes"
+                        ],
+                        "source_type": "ExcelConnector"
+                    }
+                ]
+            ],
+            "cancel_on_error": true,
+            "mapping_selection": [
+                [
+                    {
+                        "type": "path",
+                        "relative": true,
+                        "path": "original_data.xlsx"
+                    },
+                    true
+                ]
+            ]
+        },
         "GdxExporter": {
             "type": "Exporter",
             "description": "",
-            "x": 32.97524829625877,
-            "y": 118.26760593842901,
+            "x": 133.11798221247034,
+            "y": 120.9597075754393,
             "settings_packs": [
                 {
                     "output_file_name": "input_data.gdx",
                     "state": 1,
                     "settings": {
                         "domains": {
-                            "unit": {
-                                "tier": 1,
+                            "power_plant": {
+                                "tier": 3,
                                 "records": {
                                     "indexing_type": "fixed",
                                     "indexes": [
@@ -597,6 +807,9 @@
                                         ],
                                         [
                                             "plant B"
+                                        ],
+                                        [
+                                            "plant C"
                                         ]
                                     ]
                                 },
@@ -640,6 +853,27 @@
                                     "description": ""
                                 }
                             },
+                            "unit": {
+                                "tier": 1,
+                                "records": {
+                                    "indexing_type": "fixed",
+                                    "indexes": [
+                                        [
+                                            "plant A"
+                                        ],
+                                        [
+                                            "plant B"
+                                        ],
+                                        [
+                                            "plant C"
+                                        ]
+                                    ]
+                                },
+                                "metadata": {
+                                    "exportable": 1,
+                                    "origin": 1
+                                }
+                            },
                             "node": {
                                 "tier": 0,
                                 "records": {
@@ -647,6 +881,9 @@
                                     "indexes": [
                                         [
                                             "node 1"
+                                        ],
+                                        [
+                                            "node 2"
                                         ]
                                     ]
                                 },
@@ -669,6 +906,10 @@
                                         [
                                             "node 1",
                                             "plant B"
+                                        ],
+                                        [
+                                            "node 2",
+                                            "plant C"
                                         ]
                                     ]
                                 },
@@ -692,8 +933,8 @@
                     "merging_settings": {},
                     "none_fallback": 0,
                     "none_export": 0,
-                    "scenario": null,
-                    "latest_database_commit": "2020-10-06T11:52:07.119500",
+                    "scenario": "Base",
+                    "latest_database_commit": "2020-10-07T20:34:23.731981",
                     "database_url": {
                         "type": "file_url",
                         "relative": true,
