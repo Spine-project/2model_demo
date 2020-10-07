@@ -306,7 +306,7 @@
             "x": 127.85907529222081,
             "y": 90.38322169274574,
             "specification": "MyGamsModel",
-            "execute_in_work": true,
+            "execute_in_work": false,
             "cmd_line_args": []
         },
         "ToGamsModelDB": {
