@@ -21,14 +21,15 @@ with open(translation_file) as csvfile:
         renames[row[0].strip()] = row[1].strip()
         
     
-def translate_spine_data(input: dict, renames: dict) -> dict:
+def translate_spine_data(input_data: dict, renames: dict) -> dict:
     """Translate Spine data renaming classes and parameters
     """
     
     def rename(old_label):
         return renames.get(old_label, old_label)
-        
-    return {
+    
+    # Create new data by renames
+    translated = {
         'object_classes': [
             (rename(obj_class[0]),) + obj_class[1:]
             for obj_class in input_data['object_classes']
@@ -56,13 +57,36 @@ def translate_spine_data(input: dict, renames: dict) -> dict:
             (
                 rename(par_value[0]), 
                 par_value[1], 
-                rename(par_value[2]), 
-                par_value[3]
-            )
+                rename(par_value[2])
+            ) + par_value[3:]
             for par_value in input_data['object_parameter_values']
         ],
-        'alternatives': input_data['alternatives']
+        'features': [
+            (
+                rename(feature[0]), 
+                rename(feature[1]), 
+                rename(feature[2]),
+                feature[3]
+            )
+            for feature in input_data['features']
+        ],
+        'tool_features': [
+            (
+                tool_feature[0], 
+                rename(tool_feature[1]),
+                rename(tool_feature[2]),
+                tool_feature[3],
+            )
+            for tool_feature in input_data['tool_features']
+        ],
     }
+
+    # Pass through keys which are not renamed
+    for key in (set(input_data.keys()) - set(translated.keys())):
+        translated.update({key: input_data[key]})
+
+    return translated
+
 
 translated_data = translate_spine_data(input_data, renames)
 
