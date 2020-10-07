@@ -2,3 +2,7 @@
 /.spinetoolbox/items/gamsmodeldb/GamsModelDB.sqlite
 /.spinetoolbox/items/results/Results.sqlite
 input_data.gdx
+.spinetoolbox/items/juliaresults/JuliaResults.sqlite
+.spinetoolbox/items/gamsresults/GamsResults.sqlite
+output_data.gdx
+scripts/master2*.csv
