@@ -10,11 +10,11 @@ optimizer = optimizer_with_attributes(Clp.Optimizer)
 m = Model(optimizer)
 
 # Get time indices
-time = sort(collect(keys(demand(node=node()[1]).mapping)))
+time = collect(demand(node=first(node())).indexes)
 node__time = [(node=n, time=t) for n in node() for t in time]
 node__unit__time = [(node=n, unit=u, time=t) for (n, u) in node__unit() for t in time]
 
-@variable(m, flow[[(node=n, unit=u, time=t) for (n, u, t) in node__unit__time]])
+@variable(m, flow[[(node=n, unit=u, time=t) for (n, u, t) in node__unit__time]] >= 0)
 
 @constraint(m, unit_capacity[(n, u, t) in node__unit__time], 
             flow[(node=n, unit=u, time=t)] <= capacity(unit=u))
@@ -32,10 +32,29 @@ optimize!(m)
 
 # Write results
 output_db_url = ARGS[2]
-parameters = Dict("flow" =>
+
+parameters_3D = Dict(
+    "flow" =>
     Dict(
-        (node=n, unit=u, time=t) => value.(flow[(node=n, unit=u, time=t)])
-        for (n, u, t) in node__unit__time
+        (node=n, unit=u) => SpineInterface.Map(time, [value(flow[(node=n, unit=u, time=t)]) for t in time])
+        for (n, u) in node__unit()
     )
 )
-write_parameters(parameters, output_db_url)
+write_parameters(parameters_3D, output_db_url)
+
+parameters_2D = Dict(
+    "price" =>
+    Dict(
+        (node=n,) => SpineInterface.Map(time, [dual(nodal_balance[(node=n, time=t)]) for t in time])
+        for n in node()
+    )
+)
+write_parameters(parameters_2D, output_db_url)
+
+parameters_1D = Dict(
+    "objective" =>
+    Dict(
+        (model=:MyJuliaModel,) => objective_value(m)
+    )
+)
+write_parameters(parameters_1D, output_db_url)
