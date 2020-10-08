@@ -40,7 +40,7 @@ q_obj ..
 ;
 
 q_balance(node, t) ..
-  sum(unit, v_flow(unit, t))
+  sum(unit$node__unit(node, unit), v_flow(unit, t))
   =g=
   demand(node, t)
 ;
