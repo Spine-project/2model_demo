@@ -1,0 +1,153 @@
+{
+    "name": "Import data - original_data.xlsx - 0",
+    "item_type": "Importer",
+    "mapping": {
+        "table_mappings": {
+            "grid_nodes": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [
+                        0
+                    ],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "constant",
+                        "reference": "grid_node"
+                    },
+                    "parameters": {
+                        "map_type": "ParameterValue",
+                        "name": {
+                            "map_type": "constant",
+                            "reference": "elec_demand"
+                        },
+                        "value": {
+                            "main_value": {
+                                "map_type": "None"
+                            },
+                            "value_type": "map",
+                            "extra_dimensions": [
+                                {
+                                    "map_type": "column",
+                                    "reference": 1
+                                }
+                            ],
+                            "compress": false
+                        },
+                        "alternative_name": {
+                            "map_type": "None"
+                        }
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "row",
+                        "reference": 1
+                    }
+                }
+            ],
+            "plants": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "constant",
+                        "reference": "powerplant"
+                    },
+                    "parameters": {
+                        "map_type": "ParameterValue",
+                        "name": {
+                            "map_type": "row",
+                            "reference": 1
+                        },
+                        "value": {
+                            "main_value": {
+                                "map_type": "None"
+                            },
+                            "value_type": "single value"
+                        },
+                        "alternative_name": {
+                            "map_type": "None"
+                        }
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "column",
+                        "reference": 0
+                    }
+                }
+            ],
+            "plants_in_grid_nodes": [
+                {
+                    "map_type": "RelationshipClass",
+                    "skip_columns": [],
+                    "read_start_row": 2,
+                    "name": {
+                        "map_type": "constant",
+                        "reference": "grid_node__power_plant"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": [
+                        {
+                            "map_type": "column",
+                            "reference": 0
+                        },
+                        {
+                            "map_type": "column",
+                            "reference": 1
+                        }
+                    ],
+                    "object_classes": [
+                        {
+                            "map_type": "constant",
+                            "reference": "grid_node"
+                        },
+                        {
+                            "map_type": "constant",
+                            "reference": "powerplant"
+                        }
+                    ]
+                }
+            ]
+        },
+        "table_options": {},
+        "table_types": {
+            "grid_nodes": {
+                "0": "string",
+                "1": "string",
+                "2": "float",
+                "3": "float"
+            },
+            "plants": {
+                "0": "string",
+                "1": "float",
+                "2": "float",
+                "3": "float"
+            },
+            "plants_in_grid_nodes": {
+                "0": "string",
+                "1": "string"
+            }
+        },
+        "table_row_types": {
+            "grid_nodes": {
+                "1": "string"
+            },
+            "plants": {
+                "1": "string"
+            },
+            "plants_in_grid_nodes": {
+                "0": "string"
+            }
+        },
+        "selected_tables": [
+            "grid_nodes",
+            "plants",
+            "plants_in_grid_nodes"
+        ],
+        "source_type": "ExcelConnector"
+    },
+    "description": null
+}

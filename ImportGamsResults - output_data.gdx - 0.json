@@ -1,0 +1,223 @@
+{
+    "name": "ImportGamsResults - output_data.gdx - 0",
+    "item_type": "Importer",
+    "mapping": {
+        "table_mappings": {
+            "node": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "table_name",
+                        "reference": "node"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "column",
+                        "reference": 0
+                    }
+                }
+            ],
+            "unit": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "table_name",
+                        "reference": "unit"
+                    },
+                    "parameters": {
+                        "map_type": "None"
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "column",
+                        "reference": 0
+                    }
+                }
+            ],
+            "r_obj": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "table_name",
+                        "reference": "model"
+                    },
+                    "parameters": {
+                        "map_type": "ParameterValue",
+                        "name": {
+                            "map_type": "constant",
+                            "reference": "objective"
+                        },
+                        "value": {
+                            "map_type": "parameter",
+                            "alternative_name": {
+                                "map_type": "None"
+                            },
+                            "value_type": "single value",
+                            "main_value": {
+                                "map_type": "column",
+                                "reference": 0
+                            }
+                        },
+                        "alternative_name": {
+                            "map_type": "None"
+                        }
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "constant",
+                        "reference": "MyGamsModel"
+                    }
+                }
+            ],
+            "r_balance_marg": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "table_name",
+                        "reference": "node"
+                    },
+                    "parameters": {
+                        "map_type": "ParameterValue",
+                        "name": {
+                            "map_type": "constant",
+                            "reference": "price"
+                        },
+                        "value": {
+                            "map_type": "parameter",
+                            "alternative_name": {
+                                "map_type": "None"
+                            },
+                            "extra_dimensions": [
+                                {
+                                    "map_type": "column",
+                                    "reference": 1
+                                }
+                            ],
+                            "compress": false,
+                            "value_type": "map",
+                            "main_value": {
+                                "map_type": "column",
+                                "reference": 2
+                            }
+                        },
+                        "alternative_name": {
+                            "map_type": "None"
+                        },
+                        "extra_dimensions": [
+                            {
+                                "map_type": "column",
+                                "reference": 1
+                            }
+                        ],
+                        "compress": false
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "column",
+                        "reference": 0
+                    }
+                }
+            ],
+            "r_flow": [
+                {
+                    "map_type": "ObjectClass",
+                    "skip_columns": [],
+                    "read_start_row": 0,
+                    "name": {
+                        "map_type": "constant",
+                        "reference": "unit"
+                    },
+                    "parameters": {
+                        "map_type": "ParameterValue",
+                        "name": {
+                            "map_type": "constant",
+                            "reference": "flow"
+                        },
+                        "value": {
+                            "map_type": "parameter",
+                            "alternative_name": {
+                                "map_type": "None"
+                            },
+                            "extra_dimensions": [
+                                {
+                                    "map_type": "column",
+                                    "reference": 1
+                                }
+                            ],
+                            "compress": false,
+                            "value_type": "map",
+                            "main_value": {
+                                "map_type": "column",
+                                "reference": 2
+                            }
+                        },
+                        "alternative_name": {
+                            "map_type": "None"
+                        },
+                        "extra_dimensions": [
+                            {
+                                "map_type": "column",
+                                "reference": 1
+                            }
+                        ],
+                        "compress": false
+                    },
+                    "import_objects": true,
+                    "objects": {
+                        "map_type": "column",
+                        "reference": 0
+                    }
+                }
+            ]
+        },
+        "table_options": {
+            "node": {},
+            "unit": {},
+            "r_obj": {},
+            "r_balance_marg": {},
+            "r_flow": {}
+        },
+        "table_types": {
+            "node": {
+                "0": "string"
+            },
+            "unit": {
+                "0": "string"
+            },
+            "r_obj": {
+                "0": "float"
+            },
+            "r_balance_marg": {
+                "0": "string",
+                "1": "string",
+                "2": "float"
+            },
+            "r_flow": {
+                "0": "string",
+                "1": "string",
+                "2": "float"
+            }
+        },
+        "table_row_types": {},
+        "selected_tables": [
+            "node",
+            "unit",
+            "r_obj",
+            "r_balance_marg",
+            "r_flow"
+        ],
+        "source_type": "GdxConnector"
+    },
+    "description": null
+}

@@ -1,0 +1,1 @@
+{"name": "Sets to Julia", "item_type": "Data Transformer", "description": "Change set names to suit MyJuliaModel", "filter": {"type": "entity_class_rename", "settings": {"grid_node": "node", "grid_node__power_plant": "node__unit", "powerplant": "unit"}}}
