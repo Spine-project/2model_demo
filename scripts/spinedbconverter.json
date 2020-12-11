@@ -16,5 +16,5 @@
         "@@optional_inputs@@"
     ],
     "execute_in_work": false,
-    "includes_main_path": "."
+    "includes_main_path": "C:/data/emp-e-2models-demo/scripts"
 }

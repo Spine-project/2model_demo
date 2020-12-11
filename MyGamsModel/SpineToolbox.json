@@ -10,13 +10,13 @@
     ],
     "inputfiles_opt": [],
     "outputfiles": [
-        "MyGamsModel.lst",
-        "output_data.gdx"
+        "output_data.gdx",
+        "MyGamsModel.lst"
     ],
     "cmdline_args": [
         "--input_data_file=input_data.gdx",
         "--output_data_file=output_data.gdx"
     ],
     "execute_in_work": true,
-    "includes_main_path": "."
+    "includes_main_path": "C:/data/emp-e-2models-demo/MyGamsModel"
 }
