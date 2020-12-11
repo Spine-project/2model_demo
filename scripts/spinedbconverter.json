@@ -10,11 +10,7 @@
         "*.csv"
     ],
     "outputfiles": [],
-    "cmdline_args": [
-        "@@url_inputs@@",
-        "@@url_outputs@@",
-        "@@optional_inputs@@"
-    ],
+    "cmdline_args": [],
     "execute_in_work": false,
     "includes_main_path": "C:/data/emp-e-2models-demo/scripts"
 }
