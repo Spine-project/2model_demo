@@ -1,0 +1,1 @@
+{"name": "Params_to_GAMS", "item_type": "Data Transformer", "description": "", "filter": {"type": "parameter_rename", "settings": {"elec_demand": "demand", "net_capacity": "capacity", "operating_cost": "var_cost", "ramp_up": "ramp_up"}}}
