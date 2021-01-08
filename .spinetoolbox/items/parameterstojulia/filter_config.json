@@ -1,0 +1,1 @@
+{"type": "parameter_renamer", "name_map": {"elec_demand": "demand", "net_capacity": "capacity", "operating_cost": "op_cost"}}
