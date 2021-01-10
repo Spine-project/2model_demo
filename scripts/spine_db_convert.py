@@ -61,24 +61,24 @@ def translate_spine_data(input_data: dict, renames: dict) -> dict:
             ) + par_value[3:]
             for par_value in input_data['object_parameter_values']
         ],
-        'features': [
-            (
-                rename(feature[0]), 
-                rename(feature[1]), 
-                rename(feature[2]),
-                feature[3]
-            )
-            for feature in input_data['features']
-        ],
-        'tool_features': [
-            (
-                tool_feature[0], 
-                rename(tool_feature[1]),
-                rename(tool_feature[2]),
-                tool_feature[3],
-            )
-            for tool_feature in input_data['tool_features']
-        ],
+#        'features': [
+#            (
+#                rename(feature[0]),
+#                rename(feature[1]),
+#                rename(feature[2]),
+#                feature[3]
+#            )
+#            for feature in input_data['features']
+#        ],
+#        'tool_features': [
+#            (
+#                tool_feature[0],
+#                rename(tool_feature[1]),
+#                rename(tool_feature[2]),
+#                tool_feature[3],
+#            )
+#            for tool_feature in input_data['tool_features']
+#        ],
     }
 
     # Pass through keys which are not renamed
