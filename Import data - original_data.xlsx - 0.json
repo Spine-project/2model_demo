@@ -34,6 +34,9 @@
                             "compress": false
                         },
                         "alternative_name": {
+                            "map_type": "constant"
+                        },
+                        "parameter_value_metadata": {
                             "map_type": "None"
                         }
                     },
@@ -41,7 +44,11 @@
                     "objects": {
                         "map_type": "row",
                         "reference": 1
-                    }
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 0"
                 }
             ],
             "plants": [
@@ -66,6 +73,9 @@
                             "value_type": "single value"
                         },
                         "alternative_name": {
+                            "map_type": "constant"
+                        },
+                        "parameter_value_metadata": {
                             "map_type": "None"
                         }
                     },
@@ -73,7 +83,11 @@
                     "objects": {
                         "map_type": "column",
                         "reference": 0
-                    }
+                    },
+                    "object_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 0"
                 }
             ],
             "plants_in_grid_nodes": [
@@ -108,7 +122,11 @@
                             "map_type": "constant",
                             "reference": "powerplant"
                         }
-                    ]
+                    ],
+                    "relationship_metadata": {
+                        "map_type": "None"
+                    },
+                    "mapping_name": "Mapping 0"
                 }
             ]
         },
@@ -149,5 +167,5 @@
         ],
         "source_type": "ExcelConnector"
     },
-    "description": null
+    "description": ""
 }

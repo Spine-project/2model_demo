@@ -8,6 +8,7 @@ node__unit(node, unit) "Conversion unit in a specific location"
 parameter
 capacity(unit)  "Capacity of a particular unit"
 var_cost(unit)  "Variable cost of a unit"
+ramp_up(unit)   "Upward ramp limit in p.u."
 demand(node, t)      "Energy demand in particular node at particular time"
 r_obj
 r_balance_marg(node, t) "Marginal value of the balance equation"
@@ -15,7 +16,7 @@ r_flow(unit, t)    "Energy flow in unit"
 ;
 
 $gdxin %input_data_file%
-$Load node unit node__unit capacity var_cost demand
+$Load node unit node__unit capacity var_cost ramp_up demand
 $gdxin
 
 variable
@@ -30,6 +31,7 @@ equation
 q_obj
 q_balance(node, t)
 q_capacity(unit, t)
+q_ramp_up_constraint(unit, t)
 ;
 
 
@@ -51,10 +53,18 @@ q_capacity(unit, t) ..
   capacity(unit)
 ;
 
+q_ramp_up_constraint(unit, t)$ramp_up(unit)..
+  v_flow(unit, t)
+  =l=
+  v_flow(unit, t-1)
+  + ramp_up(unit) * capacity(unit)
+;
+
 model schedule /
 q_obj
 q_balance
 q_capacity
+q_ramp_up_constraint
 /;
 
 solve schedule using lp minimizing v_obj;

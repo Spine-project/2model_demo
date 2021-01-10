@@ -6,3 +6,7 @@ input_data.gdx
 .spinetoolbox/items/gamsresults/GamsResults.sqlite
 output_data.gdx
 scripts/master2*.csv
+.spinetoolbox/items/mygamsmodel/output/
+*.bak2
+*.bak3
+*.~gm
