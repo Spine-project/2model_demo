@@ -10,8 +10,8 @@
     ],
     "inputfiles_opt": [],
     "outputfiles": [
-        "MyGamsModel.lst",
-        "output_data.gdx"
+        "output_data.gdx",
+        "MyGamsModel.lst"
     ],
     "cmdline_args": [
         "--input_data_file=input_data.gdx",
