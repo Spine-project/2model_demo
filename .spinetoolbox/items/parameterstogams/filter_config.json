@@ -1,1 +1,1 @@
-{"type": "parameter_renamer", "name_map": {"elec_demand": "demand", "net_capacity": "capacity", "operating_cost": "var_cost"}}
+{"type": "parameter_renamer", "name_map": {"grid_node": {"elec_demand": "demand"}, "powerplant": {"net_capacity": "capacity", "operating_cost": "var_cost"}}}

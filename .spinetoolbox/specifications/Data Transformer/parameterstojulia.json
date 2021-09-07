@@ -1,1 +1,18 @@
-{"name": "ParametersToJulia", "item_type": "Data Transformer", "description": "Change parameter names to suit MyJuliaModel", "filter": {"type": "parameter_rename", "settings": {"elec_demand": "demand", "net_capacity": "capacity", "operating_cost": "op_cost", "ramp_up": "ramp_up"}}}
+{
+    "name": "ParametersToJulia",
+    "item_type": "Data Transformer",
+    "description": "Change parameter names to suit MyJuliaModel",
+    "filter": {
+        "type": "parameter_rename",
+        "settings": {
+            "grid_node": {
+                "elec_demand": "demand"
+            },
+            "powerplant": {
+                "net_capacity": "capacity",
+                "operating_cost": "op_cost",
+                "ramp_up": "ramp_up"
+            }
+        }
+    }
+}

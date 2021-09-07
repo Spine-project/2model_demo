@@ -33,6 +33,14 @@ optimize!(m)
 # Write results
 output_db_url = ARGS[2]
 
+parameters_1D = Dict(
+    "objective" =>
+    Dict(
+        (model=:MyJuliaModel,) => objective_value(m)
+    )
+)
+write_parameters(parameters_1D, output_db_url)
+
 parameters_3D = Dict(
     "flow" =>
     Dict(
@@ -51,10 +59,3 @@ parameters_2D = Dict(
 )
 write_parameters(parameters_2D, output_db_url)
 
-parameters_1D = Dict(
-    "objective" =>
-    Dict(
-        (model=:MyJuliaModel,) => objective_value(m)
-    )
-)
-write_parameters(parameters_1D, output_db_url)

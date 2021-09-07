@@ -10,5 +10,5 @@
     "outputfiles": [],
     "cmdline_args": [],
     "execute_in_work": true,
-    "includes_main_path": "C:/data/emp-e-2models-demo/MyJuliaModel"
+    "includes_main_path": "."
 }

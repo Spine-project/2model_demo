@@ -18,5 +18,5 @@
         "--output_data_file=output_data.gdx"
     ],
     "execute_in_work": true,
-    "includes_main_path": "C:/data/emp-e-2models-demo/MyGamsModel"
+    "includes_main_path": "."
 }
