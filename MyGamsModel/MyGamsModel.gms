@@ -33,13 +33,15 @@ positive variable
 v_flow(unit, t)  "Flow"
 ;
 
+v_transfer.up(node__node(node_left, node_right), t) = transfer_capacity(node_left, node_right);
+v_transfer.lo(node__node(node_left, node_right), t) = -transfer_capacity(node_left, node_right);
+
+
 equation
 q_obj
 q_balance(node, t)
 q_capacity(unit, t)
 q_ramp_up_constraint(unit, t)
-q_transfer_capacity_rightward(node, node, t)
-q_transfer_capacity_leftward(node, node, t)
 ;
 
 
@@ -51,9 +53,9 @@ q_obj ..
 
 q_balance(node, t) ..
   + sum(unit$node__unit(node, unit), v_flow(unit, t))
-  + sum(node_right$(node__node(node, node_right)), v_transfer(node, node_right, t))
-  - sum(node_left$(node__node(node_left, node)), v_transfer(node_left, node, t))
+  + sum(node_left$(node__node(node_left, node)), v_transfer(node_left, node, t))
   =e=
+  + sum(node_right$(node__node(node, node_right)), v_transfer(node, node_right, t))
   + demand(node, t)
 ;
 
@@ -70,25 +72,11 @@ q_ramp_up_constraint(unit, t)$ramp_up(unit)..
   + ramp_up(unit) * capacity(unit)
 ;
 
-q_transfer_capacity_rightward(node__node(node_left, node_right), t) ..
-  v_transfer(node_left, node_right, t)
-  =l=
-  transfer_capacity(node_left, node_right)
-;
-
-q_transfer_capacity_leftward(node__node(node_left, node_right), t) ..
-  v_transfer(node_right, node_left, t)
-  =l=
-  transfer_capacity(node_left, node_right)
-;
-
 model schedule /
 q_obj
 q_balance
 q_capacity
 q_ramp_up_constraint
-q_transfer_capacity_rightward
-q_transfer_capacity_leftward
 /;
 
 solve schedule using lp minimizing v_obj;

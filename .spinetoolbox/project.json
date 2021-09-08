@@ -266,7 +266,7 @@
             "type": "Data Store",
             "description": "",
             "x": -222.0283750877373,
-            "y": 101.71350783444247,
+            "y": 104.42036818145282,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -285,7 +285,7 @@
             "type": "Data Store",
             "description": "",
             "x": 42.42584464596912,
-            "y": -171.7910162630762,
+            "y": -171.85008720085224,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -304,7 +304,7 @@
             "type": "Data Store",
             "description": "",
             "x": 467.9153328947811,
-            "y": -10.725487651510814,
+            "y": -10.78455858928687,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -323,7 +323,7 @@
             "type": "Data Connection",
             "description": "",
             "x": -240.5416291831766,
-            "y": -134.7102908920648,
+            "y": -134.76936182984085,
             "references": [
                 {
                     "type": "path",
@@ -336,7 +336,7 @@
             "type": "Data Connection",
             "description": "",
             "x": -451.91533289478116,
-            "y": -26.651146133390043,
+            "y": -26.7102170711661,
             "references": [
                 {
                     "type": "path",
@@ -348,8 +348,8 @@
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 242.60966118052923,
-            "y": 6.738667756110735,
+            "x": 243.99262682292246,
+            "y": 16.360356315087042,
             "specification": "MyJuliaModel",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -367,7 +367,7 @@
             "type": "Tool",
             "description": "",
             "x": -88.97082966193977,
-            "y": -152.90413872151208,
+            "y": -152.96320965928814,
             "specification": "SpineDBConverter",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -388,8 +388,8 @@
         "MyGamsModel": {
             "type": "Tool",
             "description": "",
-            "x": 279.5032935486393,
-            "y": 167.99637519954587,
+            "x": 279.50329354863914,
+            "y": 169.32026990416298,
             "specification": "MyGamsModel",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -398,7 +398,7 @@
             "type": "Tool",
             "description": "",
             "x": 229.32121040103132,
-            "y": -171.51081113978722,
+            "y": -171.56988207756328,
             "specification": "MyJuliaModel",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -416,17 +416,17 @@
             "type": "Importer",
             "description": "",
             "x": 380.14673331294983,
-            "y": 108.36916008863908,
+            "y": 108.31008915086302,
             "specification": "ImportGamsResults - output_data.gdx - 0",
             "cancel_on_error": true,
             "file_selection": [
                 [
-                    "output_data.gdx",
-                    true
-                ],
-                [
                     "MyGamsModel.lst",
                     false
+                ],
+                [
+                    "output_data.gdx",
+                    true
                 ]
             ]
         },
@@ -434,7 +434,7 @@
             "type": "Importer",
             "description": "",
             "x": -348.16597630165495,
-            "y": 84.67268436103447,
+            "y": 84.61361342325841,
             "specification": "Import data - original_data.xlsx - 0",
             "cancel_on_error": true,
             "file_selection": [
@@ -448,35 +448,35 @@
             "type": "Data Transformer",
             "description": "",
             "x": -46.480688219981,
-            "y": -5.117236523748005,
+            "y": -5.176307461524061,
             "specification": "ParametersToJulia"
         },
         "SetsToJulia": {
             "type": "Data Transformer",
             "description": "",
             "x": 87.16372755329559,
-            "y": -5.273825870266535,
+            "y": -5.332896808042591,
             "specification": "Sets to Julia"
         },
         "ParametersToGAMS": {
             "type": "Data Transformer",
             "description": "",
             "x": -80.39612661094958,
-            "y": 147.51590121141618,
+            "y": 147.45683027364012,
             "specification": "Params_to_GAMS"
         },
         "SetsToGAMS": {
             "type": "Data Transformer",
             "description": "",
             "x": 43.966937765152124,
-            "y": 170.52568242529574,
+            "y": 170.46661148751969,
             "specification": "Sets_to_GAMS"
         },
         "Export_to_GAMS": {
             "type": "Exporter",
             "description": "",
             "x": 159.0410488752174,
-            "y": 175.90915813862833,
+            "y": 175.85008720085227,
             "databases": [
                 {
                     "output_file_name": "input_data.gdx",
