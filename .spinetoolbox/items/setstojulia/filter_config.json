@@ -1,1 +1,1 @@
-{"type": "entity_class_renamer", "name_map": {"grid_node": "node", "grid_node__power_plant": "node__unit", "powerplant": "unit"}}
+{"type": "entity_class_renamer", "name_map": {"grid_node": "node", "grid_node__power_plant": "node__unit", "powerplant": "unit", "grid_node__grid_node": "node__node"}}

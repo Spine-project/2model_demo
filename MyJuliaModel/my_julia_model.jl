@@ -13,8 +13,10 @@ m = Model(optimizer)
 time = collect(demand(node=first(node())).indexes)
 node__time = [(node=n, time=t) for n in node() for t in time]
 node__unit__time = [(node=n, unit=u, time=t) for (n, u) in node__unit() for t in time]
+node__node__time = [(node1=n1, node2=n2, time=t) for (n1, n2) in node__node() for t in time]
 
 @variable(m, flow[[(node=n, unit=u, time=t) for (n, u, t) in node__unit__time]] >= 0)
+#@variable(m, transfer[[(node1=n1, node2=n2, time=t) for (n1, n2, t) in node__node__time]])
 
 @constraint(m, unit_capacity[(n, u, t) in node__unit__time], 
             flow[(node=n, unit=u, time=t)] <= capacity(unit=u))
@@ -23,6 +25,10 @@ node__unit__time = [(node=n, unit=u, time=t) for (n, u) in node__unit() for t in
             sum(flow[(node=n, unit=u, time=t)] 
                 for u in node__unit(node=n)) 
             == demand(node=n, time=t))
+
+@constraint(m, transfer_righward[(n1,n2, t) in node__node__time],
+            transfer[(node1=n1, node2=n2, time=t)] 
+            <= transfer_capacity(node1=n1, node2=n2))
 
 @objective(m, Min, 
            sum(op_cost(unit=u) * flow[(node=n, unit=u, time=t)] 
