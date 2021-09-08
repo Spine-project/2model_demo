@@ -54,6 +54,13 @@
                     "relative": true,
                     "path": ".spinetoolbox/specifications/Data Transformer/sets_to_gams.json"
                 }
+            ],
+            "Exporter": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/from_master_to_gams.json"
+                }
             ]
         },
         "connections": [
@@ -74,16 +81,6 @@
                         ]
                     }
                 }
-            },
-            {
-                "from": [
-                    "GdxExporter",
-                    "right"
-                ],
-                "to": [
-                    "MyGamsModel",
-                    "left"
-                ]
             },
             {
                 "from": [
@@ -247,7 +244,17 @@
                     "right"
                 ],
                 "to": [
-                    "GdxExporter",
+                    "Export_to_GAMS",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Export_to_GAMS",
+                    "right"
+                ],
+                "to": [
+                    "MyGamsModel",
                     "left"
                 ]
             }
@@ -258,8 +265,8 @@
         "Master data": {
             "type": "Data Store",
             "description": "",
-            "x": -222.02837508773732,
-            "y": 103.09647347683564,
+            "x": -222.0283750877373,
+            "y": 101.71350783444247,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -296,8 +303,8 @@
         "Results": {
             "type": "Data Store",
             "description": "",
-            "x": 467.91533289478105,
-            "y": -7.959556366724431,
+            "x": 467.9153328947811,
+            "y": -10.725487651510814,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -341,8 +348,8 @@
         "MyJuliaModel": {
             "type": "Tool",
             "description": "",
-            "x": 239.84372989574283,
-            "y": 5.355702113717541,
+            "x": 242.60966118052923,
+            "y": 6.738667756110735,
             "specification": "MyJuliaModel",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -381,8 +388,8 @@
         "MyGamsModel": {
             "type": "Tool",
             "description": "",
-            "x": 273.97143097906644,
-            "y": 162.46451262997306,
+            "x": 279.5032935486393,
+            "y": 167.99637519954587,
             "specification": "MyGamsModel",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -408,8 +415,8 @@
         "ImportGamsResults": {
             "type": "Importer",
             "description": "",
-            "x": 378.76376767055666,
-            "y": 109.75212573103228,
+            "x": 380.14673331294983,
+            "y": 108.36916008863908,
             "specification": "ImportGamsResults - output_data.gdx - 0",
             "cancel_on_error": true,
             "file_selection": [
@@ -436,152 +443,6 @@
                     true
                 ]
             ]
-        },
-        "GdxExporter": {
-            "type": "GdxExporter",
-            "description": "",
-            "x": 164.12939186954137,
-            "y": 175.79101626307616,
-            "databases": [
-                {
-                    "output_file_name": "input_data.gdx",
-                    "database_url": {
-                        "type": "file_url",
-                        "relative": true,
-                        "path": ".spinetoolbox/items/master_data/Master data.sqlite",
-                        "scheme": "sqlite"
-                    }
-                }
-            ],
-            "output_time_stamps": false,
-            "cancel_on_error": true,
-            "settings_pack": {
-                "settings": {
-                    "domains": {
-                        "node": {
-                            "tier": 1,
-                            "records": {
-                                "indexing_type": "fixed",
-                                "indexes": [
-                                    [
-                                        "node 1"
-                                    ],
-                                    [
-                                        "node 2"
-                                    ]
-                                ]
-                            },
-                            "metadata": {
-                                "exportable": 1,
-                                "origin": 1
-                            }
-                        },
-                        "t": {
-                            "tier": 0,
-                            "records": {
-                                "indexing_type": "extracted",
-                                "parameter_name": "demand",
-                                "domain_names": [
-                                    "node"
-                                ],
-                                "indexes": [
-                                    [
-                                        "t0001"
-                                    ],
-                                    [
-                                        "t0002"
-                                    ],
-                                    [
-                                        "t0003"
-                                    ],
-                                    [
-                                        "t0004"
-                                    ],
-                                    [
-                                        "t0005"
-                                    ],
-                                    [
-                                        "t0006"
-                                    ],
-                                    [
-                                        "t0007"
-                                    ]
-                                ]
-                            },
-                            "metadata": {
-                                "exportable": 2,
-                                "origin": 2,
-                                "description": ""
-                            }
-                        },
-                        "unit": {
-                            "tier": 2,
-                            "records": {
-                                "indexing_type": "fixed",
-                                "indexes": [
-                                    [
-                                        "plant A"
-                                    ],
-                                    [
-                                        "plant B"
-                                    ],
-                                    [
-                                        "plant C"
-                                    ]
-                                ]
-                            },
-                            "metadata": {
-                                "exportable": 1,
-                                "origin": 1
-                            }
-                        }
-                    },
-                    "sets": {
-                        "node__unit": {
-                            "tier": 0,
-                            "records": {
-                                "indexing_type": "fixed",
-                                "indexes": [
-                                    [
-                                        "node 1",
-                                        "plant A"
-                                    ],
-                                    [
-                                        "node 1",
-                                        "plant B"
-                                    ],
-                                    [
-                                        "node 2",
-                                        "plant C"
-                                    ]
-                                ]
-                            },
-                            "metadata": {
-                                "exportable": 1,
-                                "origin": 1
-                            }
-                        }
-                    },
-                    "global_parameters_domain_name": ""
-                },
-                "indexing_settings": {
-                    "demand": [
-                        {
-                            "indexing_domain": "t",
-                            "index_position": 1,
-                            "picking": {
-                                "picking": "all 7"
-                            },
-                            "domain_names": [
-                                "node"
-                            ]
-                        }
-                    ]
-                },
-                "merging_settings": {},
-                "none_fallback": 0,
-                "none_export": 0
-            }
         },
         "ParametersToJulia": {
             "type": "Data Transformer",
@@ -610,6 +471,26 @@
             "x": 43.966937765152124,
             "y": 170.52568242529574,
             "specification": "Sets_to_GAMS"
+        },
+        "Export_to_GAMS": {
+            "type": "Exporter",
+            "description": "",
+            "x": 159.0410488752174,
+            "y": 175.90915813862833,
+            "databases": [
+                {
+                    "output_file_name": "input_data.gdx",
+                    "database_url": {
+                        "type": "file_url",
+                        "relative": true,
+                        "path": ".spinetoolbox/items/master_data/Master data.sqlite",
+                        "scheme": "sqlite"
+                    }
+                }
+            ],
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "specification": "From_master_to_GAMS"
         }
     }
 }
