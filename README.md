@@ -1,5 +1,5 @@
-Spine Toolbox two-models demo for EMP-E
-=========================
+Spine Toolbox two-models demo
+=============================
 
 Created by Erkka Rinne (erkka.rinne@vtt.fi) and Juha Kiviluoma (juha.kiviluoma@vtt.fi).
 
@@ -18,7 +18,7 @@ Setting up
 1. Create a Python virtual environment using e.g. [conda](https://docs.conda.io/en/latest/miniconda.html)
     
     ```
-    $ conda create -n spinetoolbox python=3.7
+    $ conda create -n spinetoolbox python=3.8
     $ conda activate spinetoolbox
     ```
 
@@ -43,3 +43,5 @@ Setting up
     ```
 
 5. In Spine Toolbox settings, select dir *MyJuliaModel* as the Julia project on **Tools** page.
+
+6. In Spine Toolbox settings, select GAMS executable on **Tools** page. If you don't have GAMS, you can request a demo license or skip that part of the Toolbox workflow (https://www.gams.com/download/). GAMS version used for the demo is 24.1 (hopefully works with newer versions - it's very simple).
