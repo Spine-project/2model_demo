@@ -26,9 +26,6 @@ node__node__time = [(node1=n1, node2=n2, time=t) for (n1, n2) in node__node() fo
                 for u in node__unit(node=n)) 
             == demand(node=n, time=t))
 
-@constraint(m, transfer_righward[(n1,n2, t) in node__node__time],
-            transfer[(node1=n1, node2=n2, time=t)] 
-            <= transfer_capacity(node1=n1, node2=n2))
 
 @objective(m, Min, 
            sum(op_cost(unit=u) * flow[(node=n, unit=u, time=t)] 

@@ -21,7 +21,7 @@ r_transfer(node, node, t) "Transfer between nodes"
 ;
 
 $gdxin %input_data_file%
-$Load node unit node__unit node__node capacity var_cost ramp_up demand transfer_capacity
+$Load node unit node__unit capacity var_cost ramp_up demand node__node transfer_capacity
 $gdxin
 
 variable
@@ -84,6 +84,6 @@ solve schedule using lp minimizing v_obj;
 r_obj = v_obj.l;
 r_balance_marg(node, t) = q_balance.m(node, t);
 r_flow(unit, t) = v_flow.l(unit, t);
-r_transfer(node, node, t) = v_transfer.l(node, node, t);
+r_transfer(node__node(node, node), t) = v_transfer.l(node, node, t);
 
 execute_unload '%output_data_file%' node unit r_obj r_balance_marg r_flow r_transfer;

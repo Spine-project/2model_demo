@@ -7,7 +7,8 @@
         "settings": {
             "grid_node": "node",
             "grid_node__power_plant": "node__unit",
-            "powerplant": "unit"
+            "powerplant": "unit",
+            "grid_node__grid_node": "node__node"
         }
     }
 }
