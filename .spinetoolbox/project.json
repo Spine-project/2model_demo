@@ -66,24 +66,6 @@
         "connections": [
             {
                 "from": [
-                    "JuliaModelDB",
-                    "right"
-                ],
-                "to": [
-                    "MyJuliaAlt",
-                    "left"
-                ],
-                "resource_filters": {
-                    "db_url@JuliaModelDB": {
-                        "scenario_filter": [
-                            1,
-                            2
-                        ]
-                    }
-                }
-            },
-            {
-                "from": [
                     "ImportGamsResults",
                     "right"
                 ],
@@ -104,16 +86,6 @@
             },
             {
                 "from": [
-                    "MyJuliaAlt",
-                    "right"
-                ],
-                "to": [
-                    "Results",
-                    "left"
-                ]
-            },
-            {
-                "from": [
                     "SetsToJulia",
                     "right"
                 ],
@@ -156,16 +128,6 @@
                     "right"
                 ],
                 "to": [
-                    "ToJuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "Master data",
-                    "right"
-                ],
-                "to": [
                     "ParametersToGAMS",
                     "left"
                 ],
@@ -177,26 +139,6 @@
                         ]
                     }
                 }
-            },
-            {
-                "from": [
-                    "JuliaModelMappings",
-                    "right"
-                ],
-                "to": [
-                    "ToJuliaModelDB",
-                    "left"
-                ]
-            },
-            {
-                "from": [
-                    "ToJuliaModelDB",
-                    "right"
-                ],
-                "to": [
-                    "JuliaModelDB",
-                    "left"
-                ]
             },
             {
                 "from": [
@@ -281,25 +223,6 @@
             },
             "cancel_on_error": false
         },
-        "JuliaModelDB": {
-            "type": "Data Store",
-            "description": "",
-            "x": 42.42584464596912,
-            "y": -171.85008720085224,
-            "url": {
-                "dialect": "sqlite",
-                "username": "",
-                "password": "",
-                "host": "",
-                "port": "",
-                "database": {
-                    "type": "path",
-                    "relative": true,
-                    "path": ".spinetoolbox/items/juliamodeldb/JuliaModelDB.sqlite"
-                }
-            },
-            "cancel_on_error": false
-        },
         "Results": {
             "type": "Data Store",
             "description": "",
@@ -318,19 +241,6 @@
                 }
             },
             "cancel_on_error": false
-        },
-        "JuliaModelMappings": {
-            "type": "Data Connection",
-            "description": "",
-            "x": -240.5416291831766,
-            "y": -134.76936182984085,
-            "references": [
-                {
-                    "type": "path",
-                    "relative": true,
-                    "path": "MyJuliaModel/master2julia.csv"
-                }
-            ]
         },
         "Link to original data": {
             "type": "Data Connection",
@@ -363,28 +273,6 @@
                 }
             ]
         },
-        "ToJuliaModelDB": {
-            "type": "Tool",
-            "description": "",
-            "x": -88.97082966193977,
-            "y": -152.96320965928814,
-            "specification": "SpineDBConverter",
-            "execute_in_work": false,
-            "cmd_line_args": [
-                {
-                    "type": "resource",
-                    "arg": "db_url@Master data"
-                },
-                {
-                    "type": "resource",
-                    "arg": "db_url@JuliaModelDB"
-                },
-                {
-                    "type": "resource",
-                    "arg": "master2julia.csv"
-                }
-            ]
-        },
         "MyGamsModel": {
             "type": "Tool",
             "description": "",
@@ -394,30 +282,12 @@
             "execute_in_work": true,
             "cmd_line_args": []
         },
-        "MyJuliaAlt": {
-            "type": "Tool",
-            "description": "",
-            "x": 229.32121040103132,
-            "y": -171.56988207756328,
-            "specification": "MyJuliaModel",
-            "execute_in_work": true,
-            "cmd_line_args": [
-                {
-                    "type": "resource",
-                    "arg": "db_url@JuliaModelDB"
-                },
-                {
-                    "type": "resource",
-                    "arg": "db_url@Results"
-                }
-            ]
-        },
         "ImportGamsResults": {
             "type": "Importer",
             "description": "",
             "x": 380.14673331294983,
             "y": 108.31008915086302,
-            "specification": "ImportGamsResults - output_data.gdx - 0",
+            "specification": "",
             "cancel_on_error": true,
             "file_selection": [
                 [
