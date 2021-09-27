@@ -1,0 +1,8 @@
+{ "object_parameter_values" :
+	{
+		"_description": "Test validation in the 2-model demo",
+		"class": "powerplant",
+		"parameter": "net_capacity",
+		"rule": {"type": "number", "min": 150}
+	}
+}

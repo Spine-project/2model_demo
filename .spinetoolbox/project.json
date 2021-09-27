@@ -118,6 +118,9 @@
                         "scenario_filter": [
                             1,
                             2
+                        ],
+                        "tool_filter": [
+                            1
                         ]
                     }
                 }
@@ -134,6 +137,10 @@
                 "resource_filters": {
                     "db_url@Master data": {
                         "scenario_filter": [
+                            1,
+                            2
+                        ],
+                        "tool_filter": [
                             1,
                             2
                         ]
@@ -199,6 +206,26 @@
                     "MyGamsModel",
                     "left"
                 ]
+            },
+            {
+                "from": [
+                    "Master data",
+                    "bottom"
+                ],
+                "to": [
+                    "Validate",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Validate_settings",
+                    "right"
+                ],
+                "to": [
+                    "Validate",
+                    "left"
+                ]
             }
         ],
         "jumps": []
@@ -208,7 +235,7 @@
             "type": "Data Store",
             "description": "",
             "x": -222.0283750877373,
-            "y": 31.850433116609707,
+            "y": 32.100433116609736,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -227,7 +254,7 @@
             "type": "Data Store",
             "description": "",
             "x": 467.9153328947811,
-            "y": -83.35449365412998,
+            "y": -83.10449365412995,
             "url": {
                 "dialect": "sqlite",
                 "username": "",
@@ -246,7 +273,7 @@
             "type": "Data Connection",
             "description": "",
             "x": -451.91533289478116,
-            "y": -99.2801521360092,
+            "y": -99.03015213600918,
             "references": [
                 {
                     "type": "path",
@@ -259,7 +286,7 @@
             "type": "Tool",
             "description": "",
             "x": 243.99262682292246,
-            "y": -56.20957874975606,
+            "y": -55.959578749756034,
             "specification": "MyJuliaModel",
             "execute_in_work": true,
             "cmd_line_args": [
@@ -277,7 +304,7 @@
             "type": "Tool",
             "description": "",
             "x": 279.50329354863914,
-            "y": 96.75033483931988,
+            "y": 97.0003348393199,
             "specification": "MyGamsModel",
             "execute_in_work": true,
             "cmd_line_args": []
@@ -286,17 +313,17 @@
             "type": "Importer",
             "description": "",
             "x": 380.14673331294983,
-            "y": 35.74015408601991,
+            "y": 35.99015408601994,
             "specification": "ImportGamsResults - output_data.gdx",
             "cancel_on_error": true,
             "file_selection": [
                 [
-                    "output_data.gdx",
-                    true
-                ],
-                [
                     "MyGamsModel.lst",
                     false
+                ],
+                [
+                    "output_data.gdx",
+                    true
                 ]
             ]
         },
@@ -304,7 +331,7 @@
             "type": "Importer",
             "description": "",
             "x": -348.16597630165495,
-            "y": 12.043678358415306,
+            "y": 12.293678358415335,
             "specification": "Import data - original_data.xlsx - 0",
             "cancel_on_error": true,
             "file_selection": [
@@ -318,35 +345,35 @@
             "type": "Data Transformer",
             "description": "",
             "x": -46.480688219981,
-            "y": -77.74624252636717,
+            "y": -77.49624252636714,
             "specification": "ParametersToJulia"
         },
         "SetsToJulia": {
             "type": "Data Transformer",
             "description": "",
             "x": 87.16372755329559,
-            "y": -77.9028318728857,
+            "y": -77.65283187288567,
             "specification": "Sets to Julia"
         },
         "ParametersToGAMS": {
             "type": "Data Transformer",
             "description": "",
             "x": -80.39612661094958,
-            "y": 74.88689520879701,
+            "y": 75.13689520879704,
             "specification": "Params_to_GAMS"
         },
         "SetsToGAMS": {
             "type": "Data Transformer",
             "description": "",
             "x": 43.966937765152124,
-            "y": 97.89667642267658,
+            "y": 98.1466764226766,
             "specification": "Sets_to_GAMS"
         },
         "Export_to_GAMS": {
             "type": "Exporter",
             "description": "",
             "x": 159.0410488752174,
-            "y": 103.28015213600916,
+            "y": 103.53015213600919,
             "databases": [
                 {
                     "output_file_name": "input_data.gdx",
@@ -361,6 +388,37 @@
             "output_time_stamps": false,
             "cancel_on_error": true,
             "specification": "From_master_to_GAMS"
+        },
+        "Validate": {
+            "type": "Tool",
+            "description": "",
+            "x": -149.4715404287546,
+            "y": 176.50362752757195,
+            "specification": "Validator",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "validate.json"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Master data"
+                }
+            ]
+        },
+        "Validate_settings": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -419.79241141692785,
+            "y": 187.63448692120258,
+            "references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "validate.json"
+                }
+            ]
         }
     }
 }
